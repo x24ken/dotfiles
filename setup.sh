@@ -76,6 +76,18 @@ done
 ln -sf "${DOTFILES_DIR}/.zshrc" "$HOME/.zshrc"
 ln -sf "${DOTFILES_DIR}/.gitconfig" "$HOME/.gitconfig"
 
+# iTerm2 Dynamic Profilesのシンボリックリンクを作成
+echo "🎨 iTerm2設定を適用中..."
+ITERM2_PROFILES_DIR="$HOME/Library/Application Support/iTerm2/DynamicProfiles"
+mkdir -p "$ITERM2_PROFILES_DIR"
+
+if [ -f "${DOTFILES_DIR}/iterm2/DynamicProfiles/profiles.json" ]; then
+    ln -sf "${DOTFILES_DIR}/iterm2/DynamicProfiles/profiles.json" "$ITERM2_PROFILES_DIR/profiles.json"
+    echo "✅ iTerm2プロファイルを設定しました"
+else
+    echo "⚠️  iTerm2プロファイルが見つかりません"
+fi
+
 # 6. テンプレートファイルから個人設定を作成
 echo "⚙️  個人設定ファイルの確認中..."
 

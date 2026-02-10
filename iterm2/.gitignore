@@ -1,0 +1,10 @@
+# iTerm2のplistファイル（個人情報を含むため除外）
+*.plist
+*.plist.backup
+
+# iTerm2のその他のキャッシュファイル
+*.sqlite
+*.db
+
+# macOSのシステムファイル
+.DS_Store

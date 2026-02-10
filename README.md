@@ -127,6 +127,10 @@ exec zsh
 - **zsh** + **oh-my-zsh** (agnosterテーマ)
 - **プラグイン**: zsh-syntax-highlighting, zsh-autosuggestions, you-should-use
 
+### iTerm2設定
+- **Dynamic Profiles**: プロジェクトごとに自動で色分け
+  - Algomatic 🌐, Obsidian 📝, TickTick ✔️, Kotodaman ✨, Solvere 🧩
+
 ### VS Code 拡張機能
 Tailwind CSS, ESLint, Prettier, GitLens, Thunder Client, Prisma, Vitest など
 
@@ -238,6 +242,9 @@ pip     # pip3.12
 ├── .gitconfig.local.template     # Git個人設定のテンプレート
 ├── .env.template                 # 環境変数のテンプレート
 ├── .gitignore                    # 除外ファイル
+├── iterm2/                       # iTerm2設定
+│   └── DynamicProfiles/          # プロジェクトごとの色分け設定
+│       └── profiles.json
 ├── PACKAGES.md                   # パッケージ詳細説明
 └── README.md                     # このファイル
 ```

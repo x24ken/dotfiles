@@ -40,8 +40,9 @@ cd dotfiles
 1. Homebrewパッケージの一括インストール（Brewfile）
 2. oh-my-zshのインストール
 3. zshプラグインのインストール
-4. dotfilesのシンボリックリンク作成
-5. NVMのインストール
+4. dotfilesのシンボリックリンク作成（.zshrc, .gitconfig）
+5. iTerm2 Dynamic Profilesの設定
+6. NVMのインストール
 
 **エラーハンドリング**:
 - Homebrewのエラー → `brew update && brew doctor` を実行してから再試行
@@ -193,6 +194,7 @@ exec zsh
 - [ ] oh-my-zshが動作している
 - [ ] NVMが動作している
 - [ ] エイリアス（cc, ccr等）が動作している
+- [ ] iTerm2 Dynamic Profilesが設定されている（iTerm2使用時）
 
 ---
 
@@ -211,12 +213,14 @@ exec zsh
 - Python環境（pyenv）
 - MongoDB
 - VS Code + 拡張機能
+- iTerm2 Dynamic Profiles（プロジェクトごとの色分け）
 
 設定ファイル：
 - ~/.zshrc → ~/dotfiles/.zshrc
 - ~/.gitconfig → ~/dotfiles/.gitconfig
 - ~/.gitconfig.local（個人設定）
 - ~/.env（環境変数）
+- ~/Library/Application Support/iTerm2/DynamicProfiles/profiles.json
 
 便利なエイリアス：
 - cc: Claude Code起動
