@@ -28,7 +28,15 @@ fi
 
 # 2. Brewfileから全パッケージをインストール
 echo "📦 Homebrewパッケージをインストール中..."
+set +e
 brew bundle --file="${DOTFILES_DIR}/Brewfile"
+BREW_BUNDLE_EXIT=$?
+set -e
+if [ $BREW_BUNDLE_EXIT -ne 0 ]; then
+    echo "⚠️  一部のパッケージのインストールに失敗しました（終了コード: $BREW_BUNDLE_EXIT）"
+    echo "    失敗したパッケージは後で手動インストールできます: brew bundle --file=${DOTFILES_DIR}/Brewfile"
+    echo "    セットアップを続行します..."
+fi
 
 # 3. oh-my-zshのインストール
 echo "🐚 oh-my-zshの確認中..."
@@ -57,7 +65,22 @@ if [ ! -d "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/you-should-use" ]; then
     git clone https://github.com/MichaelAquilina/zsh-you-should-use.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/you-should-use
 fi
 
-# 5. dotfilesのシンボリックリンクを作成
+# 5. Powerlineフォントのインストール
+echo "🔤 Powerlineフォントの確認中..."
+if ls ~/Library/Fonts/Noto*Powerline* &> /dev/null; then
+    echo "✅ Powerlineフォントは既にインストールされています"
+else
+    echo "Powerlineフォントをインストールします..."
+    FONTS_TMPDIR=$(mktemp -d)
+    git clone --depth=1 https://github.com/powerline/fonts.git "$FONTS_TMPDIR/fonts"
+    cd "$FONTS_TMPDIR/fonts"
+    ./install.sh
+    cd "$DOTFILES_DIR"
+    rm -rf "$FONTS_TMPDIR"
+    echo "✅ Powerlineフォントをインストールしました"
+fi
+
+# 6. dotfilesのシンボリックリンクを作成
 echo "🔗 dotfilesのシンボリックリンクを作成中..."
 
 # バックアップディレクトリを作成
@@ -114,7 +137,7 @@ if [ -f "${DOTFILES_DIR}/iterm2/com.googlecode.iterm2.plist" ]; then
     fi
 fi
 
-# 6. テンプレートファイルから個人設定を作成
+# 7. テンプレートファイルから個人設定を作成
 echo "⚙️  個人設定ファイルの確認中..."
 
 if [ ! -f "$HOME/.gitconfig.local" ]; then
@@ -131,7 +154,7 @@ if [ ! -f "$HOME/.env" ]; then
     echo "  nano ~/.env"
 fi
 
-# 7. NVMのインストール（Node.jsバージョン管理）
+# 8. NVMのインストール（Node.jsバージョン管理）
 echo "📦 NVMの確認中..."
 if [ ! -d "$HOME/.nvm" ]; then
     echo "NVMをインストールします..."
@@ -140,7 +163,7 @@ else
     echo "✅ NVM は既にインストールされています"
 fi
 
-# 8. macOSシステム設定の適用（オプション）
+# 9. macOSシステム設定の適用（オプション）
 echo ""
 if [ -f "${DOTFILES_DIR}/macos-defaults.sh" ]; then
     echo "🖥️  macOSシステム設定を適用しますか？"
