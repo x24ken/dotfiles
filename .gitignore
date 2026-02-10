@@ -1,0 +1,10 @@
+# macOS
+.DS_Store
+
+# 秘密情報（ローカルのみ）
+.env
+.gitconfig.local
+
+# Backup files
+*.bak
+*.backup

@@ -1,0 +1,24 @@
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[core]
+	editor = code --wait
+[alias]
+	s = status
+	l = log --oneline
+	cm = commit -m
+	a = add
+	p = push
+	ds = diff --staged
+[push]
+	autoSetupRemote = true
+[http]
+	postBuffer = 524288000
+
+# ローカル設定（名前、メールアドレスなど）を読み込む
+# ~/.gitconfig.local に個人情報を記載してください
+[include]
+	path = ~/.gitconfig.local

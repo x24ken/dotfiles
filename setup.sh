@@ -1,0 +1,115 @@
+#!/bin/bash
+
+# Mac環境セットアップスクリプト
+# 新しいMacでこのスクリプトを実行すると、環境が自動構築されます
+
+set -e
+
+echo "🚀 Mac環境セットアップを開始します..."
+
+# カレントディレクトリをスクリプトの場所に移動
+cd "$(dirname "$0")"
+DOTFILES_DIR=$(pwd)
+
+# 1. Homebrewのインストール確認
+echo "📦 Homebrewの確認中..."
+if ! command -v brew &> /dev/null; then
+    echo "Homebrewをインストールします..."
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+    # Apple Siliconの場合、PATHを追加
+    if [[ $(uname -m) == 'arm64' ]]; then
+        echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
+        eval "$(/opt/homebrew/bin/brew shellenv)"
+    fi
+else
+    echo "✅ Homebrew は既にインストールされています"
+fi
+
+# 2. Brewfileから全パッケージをインストール
+echo "📦 Homebrewパッケージをインストール中..."
+brew bundle --file="${DOTFILES_DIR}/Brewfile"
+
+# 3. oh-my-zshのインストール
+echo "🐚 oh-my-zshの確認中..."
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+    echo "oh-my-zshをインストールします..."
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+else
+    echo "✅ oh-my-zsh は既にインストールされています"
+fi
+
+# 4. zshプラグインのインストール
+echo "🔌 zshプラグインをインストール中..."
+
+# zsh-syntax-highlighting
+if [ ! -d "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting" ]; then
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+fi
+
+# zsh-autosuggestions
+if [ ! -d "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions" ]; then
+    git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+fi
+
+# you-should-use
+if [ ! -d "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/you-should-use" ]; then
+    git clone https://github.com/MichaelAquilina/zsh-you-should-use.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/you-should-use
+fi
+
+# 5. dotfilesのシンボリックリンクを作成
+echo "🔗 dotfilesのシンボリックリンクを作成中..."
+
+# バックアップディレクトリを作成
+BACKUP_DIR="$HOME/.dotfiles_backup_$(date +%Y%m%d_%H%M%S)"
+mkdir -p "$BACKUP_DIR"
+
+# 既存ファイルがあればバックアップ
+for file in .zshrc .gitconfig; do
+    if [ -f "$HOME/$file" ] && [ ! -L "$HOME/$file" ]; then
+        echo "既存の $file をバックアップします: $BACKUP_DIR/$file"
+        mv "$HOME/$file" "$BACKUP_DIR/"
+    fi
+done
+
+# シンボリックリンクを作成
+ln -sf "${DOTFILES_DIR}/.zshrc" "$HOME/.zshrc"
+ln -sf "${DOTFILES_DIR}/.gitconfig" "$HOME/.gitconfig"
+
+# 6. テンプレートファイルから個人設定を作成
+echo "⚙️  個人設定ファイルの確認中..."
+
+if [ ! -f "$HOME/.gitconfig.local" ]; then
+    echo "⚠️  ~/.gitconfig.local が見つかりません"
+    echo "テンプレートからコピーして、あなたの情報を入力してください："
+    echo "  cp ${DOTFILES_DIR}/.gitconfig.local.template ~/.gitconfig.local"
+    echo "  nano ~/.gitconfig.local"
+fi
+
+if [ ! -f "$HOME/.env" ]; then
+    echo "⚠️  ~/.env が見つかりません"
+    echo "テンプレートからコピーして、トークンを入力してください："
+    echo "  cp ${DOTFILES_DIR}/.env.template ~/.env"
+    echo "  nano ~/.env"
+fi
+
+# 7. NVMのインストール（Node.jsバージョン管理）
+echo "📦 NVMの確認中..."
+if [ ! -d "$HOME/.nvm" ]; then
+    echo "NVMをインストールします..."
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+else
+    echo "✅ NVM は既にインストールされています"
+fi
+
+echo ""
+echo "✅ セットアップ完了！"
+echo ""
+echo "📝 次のステップ："
+echo "  1. 個人設定ファイルを編集してください："
+echo "     - ~/.gitconfig.local (名前とメールアドレス)"
+echo "     - ~/.env (GitHubトークンなど)"
+echo ""
+echo "  2. シェルを再起動してください："
+echo "     exec zsh"
+echo ""
