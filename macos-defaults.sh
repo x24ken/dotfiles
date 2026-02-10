@@ -9,10 +9,12 @@ echo "🖥️  macOSシステム設定を適用します..."
 echo ""
 echo "⚠️  注意: このスクリプトは以下の設定を変更します："
 echo "  - Dock（サイズ、位置、自動非表示）"
-echo "  - Finder（隠しファイル表示など）"
+echo "  - Finder（隠しファイル表示、デフォルト表示場所など）"
 echo "  - キーボード（リピート速度）"
 echo "  - トラックパッド（タップでクリック）"
 echo "  - スクリーンショット（保存場所、フォーマット）"
+echo "  - UI全般（ダークモード、メニューバー、スクロールバーなど）"
+echo "  - テキスト入力（スペルチェック、スマート引用符など）"
 echo ""
 read -p "続行しますか？ (y/N): " -n 1 -r
 echo
@@ -65,6 +67,10 @@ defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
 
 # ゴミ箱を空にする前の警告を無効化
 defaults write com.apple.finder WarnOnEmptyTrash -bool false
+
+# Finderのデフォルト表示場所をホームフォルダに設定
+defaults write com.apple.finder NewWindowTarget -string "PfHm"
+defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/"
 
 ###############################################################################
 # キーボード                                                                   #
@@ -127,6 +133,36 @@ defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
 # クラッシュレポートを無効化
 defaults write com.apple.CrashReporter DialogType -string "none"
 
+# ダークモードを有効化
+defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark"
+
+# スクロールバーを常に表示
+defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
+
+# メニューバーの時計表示形式（曜日 月 日 時:分）
+defaults write com.apple.menuextra.clock DateFormat -string "EEE MMM d  H:mm"
+
+###############################################################################
+# テキスト入力                                                                 #
+###############################################################################
+
+echo "⌨️  テキスト入力設定を適用中..."
+
+# スペルチェックを無効化
+defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+
+# スマート引用符を無効化
+defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
+
+# スマートダッシュを無効化
+defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
+
+# 自動大文字化を無効化
+defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
+
+# ピリオド2回でのピリオド挿入を無効化
+defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -bool false
+
 ###############################################################################
 # アプリケーションの再起動                                                      #
 ###############################################################################
@@ -137,6 +173,7 @@ echo ""
 echo "以下のアプリケーションを再起動して設定を反映します："
 echo "  - Dock"
 echo "  - Finder"
+echo "  - SystemUIServer（メニューバー）"
 echo ""
 read -p "再起動しますか？ (y/N): " -n 1 -r
 echo
@@ -144,10 +181,11 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
     echo "再起動中..."
     killall Dock
     killall Finder
+    killall SystemUIServer 2>/dev/null || true
     echo "✅ 再起動完了"
 else
     echo "⚠️  設定を反映するには、以下のコマンドを実行してください："
-    echo "  killall Dock && killall Finder"
+    echo "  killall Dock && killall Finder && killall SystemUIServer"
 fi
 
 echo ""

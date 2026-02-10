@@ -207,6 +207,89 @@ defaults write com.apple.CrashReporter DialogType -string "none"
 **説明**: アプリがクラッシュした時の報告ダイアログを表示しない
 **効果**: 邪魔なダイアログが表示されない
 
+### ダークモード
+```bash
+defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark"
+```
+**設定値**: `Dark`（ダークモード）
+**説明**: システム全体をダークモードに設定
+**効果**: 目に優しく、バッテリー節約（OLED画面の場合）
+
+### スクロールバーの表示
+```bash
+defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
+```
+**設定値**: `Always`（常に表示）
+**選択肢**: `Automatic`（自動）、`WhenScrolling`（スクロール時のみ）、`Always`（常に表示）
+**説明**: スクロールバーを常に表示
+**効果**: スクロール可能な領域が一目でわかる
+
+### メニューバーの時計表示
+```bash
+defaults write com.apple.menuextra.clock DateFormat -string "EEE MMM d  H:mm"
+```
+**設定値**: `EEE MMM d  H:mm`（例: Mon Jan 1  14:30）
+**説明**: メニューバーの時計に曜日と日付を表示
+**効果**: 日付確認のために別のアプリを開く必要がない
+
+---
+
+## ⌨️ テキスト入力設定
+
+### スペルチェックの無効化
+```bash
+defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+```
+**設定値**: `false`（無効）
+**説明**: 自動スペルチェックを無効化
+**効果**: 技術用語やコード入力時の誤修正を防ぐ
+
+### スマート引用符の無効化
+```bash
+defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
+```
+**設定値**: `false`（無効）
+**説明**: "と"を自動的に"と"に変換しない
+**効果**: コードやJSON入力時に通常の引用符を使える
+
+### スマートダッシュの無効化
+```bash
+defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
+```
+**設定値**: `false`（無効）
+**説明**: --を自動的に—に変換しない
+**効果**: コマンドライン引数などで--が必要な時に便利
+
+### 自動大文字化の無効化
+```bash
+defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
+```
+**設定値**: `false`（無効）
+**説明**: 文頭の自動大文字化を無効化
+**効果**: コード入力時の誤変換を防ぐ
+
+### ピリオド2回でのピリオド挿入を無効化
+```bash
+defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -bool false
+```
+**設定値**: `false`（無効）
+**説明**: スペース+スペースを.+スペースに変換しない
+**効果**: プログラミング時の誤変換を防ぐ
+
+---
+
+## 📁 Finder追加設定
+
+### デフォルト表示場所
+```bash
+defaults write com.apple.finder NewWindowTarget -string "PfHm"
+defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/"
+```
+**設定値**: `PfHm`（ホームフォルダ）
+**選択肢**: `PfDe`（デスクトップ）、`PfHm`（ホーム）、`PfDo`（書類）
+**説明**: Finderを開いた時に最初に表示される場所
+**効果**: よく使うホームフォルダから開始できる
+
 ---
 
 ## 🔄 設定の適用方法
