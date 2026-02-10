@@ -250,6 +250,7 @@ pip     # pip3.12
 ├── bootstrap-minimal.sh          # フェーズ1: 最小限のツールインストール
 ├── setup.sh                      # フェーズ2: メインセットアップスクリプト
 ├── macos-defaults.sh             # macOSシステム設定スクリプト
+├── CLAUDE.md                     # Claude Code向けリポジトリ方針
 ├── SETUP_GUIDE.md                # Claude Code向けセットアップ手順書
 ├── Brewfile                      # Homebrewパッケージリスト
 ├── .zshrc                        # zsh設定
