@@ -41,11 +41,14 @@ cd dotfiles
 2. oh-my-zshのインストール
 3. zshプラグインのインストール
 4. dotfilesのシンボリックリンク作成（.zshrc, .gitconfig）
-5. iTerm2設定の適用
+5. **Claude Code設定の適用**
+   - パーミッション設定（ほぼすべてのコマンドを自動許可）
+   - `~/.claude/settings.local.json` へのシンボリックリンク作成
+6. iTerm2設定の適用
    - Dynamic Profiles（自動色分け）
    - 全体設定（Hotkey Window、キーバインドなど）← 確認後にインポート
-6. NVMのインストール
-7. macOSシステム設定の適用（オプション）
+7. NVMのインストール
+8. macOSシステム設定の適用（オプション）
    - Dock、Finder、キーボード、トラックパッドなど ← 確認後に適用
 
 **エラーハンドリング**:
@@ -194,6 +197,7 @@ exec zsh
 - [ ] `~/.zshrc` が `~/dotfiles/.zshrc` へのシンボリックリンクになっている
 - [ ] `~/.gitconfig` が `~/dotfiles/.gitconfig` へのシンボリックリンクになっている
 - [ ] `~/.gitconfig.local` が存在し、ユーザー情報が設定されている
+- [ ] `~/.claude/settings.local.json` が `~/dotfiles/.claude-settings.local.json` へのシンボリックリンクになっている
 - [ ] `~/.env` が存在する（空でもOK）
 - [ ] oh-my-zshが動作している
 - [ ] NVMが動作している

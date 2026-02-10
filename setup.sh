@@ -99,6 +99,18 @@ done
 ln -sf "${DOTFILES_DIR}/.zshrc" "$HOME/.zshrc"
 ln -sf "${DOTFILES_DIR}/.gitconfig" "$HOME/.gitconfig"
 
+# Claude Code設定のシンボリックリンクを作成
+echo "🤖 Claude Code設定を適用中..."
+mkdir -p "$HOME/.claude"
+
+if [ -f "$HOME/.claude/settings.local.json" ] && [ ! -L "$HOME/.claude/settings.local.json" ]; then
+    echo "既存の Claude Code設定をバックアップします: $BACKUP_DIR/.claude-settings.local.json"
+    mv "$HOME/.claude/settings.local.json" "$BACKUP_DIR/.claude-settings.local.json"
+fi
+
+ln -sf "${DOTFILES_DIR}/.claude-settings.local.json" "$HOME/.claude/settings.local.json"
+echo "✅ Claude Code設定を適用しました"
+
 # iTerm2設定を適用
 echo "🎨 iTerm2設定を適用中..."
 

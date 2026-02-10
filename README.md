@@ -97,6 +97,7 @@ SETUP_GUIDE.md に従ってセットアップして！
 **Claude Codeが自動で実行すること**:
 - 全パッケージのインストール（82個）
 - oh-my-zsh + プラグインのインストール
+- Claude Code設定の適用（パーミッション設定）
 - iTerm2設定の適用
 - macOSシステム設定の適用（Dock、Finder、キーボードなど）
 - 設定ファイルのシンボリックリンク作成
@@ -164,7 +165,8 @@ exec zsh
 3. ✅ **82個のパッケージ** 一括インストール（Node.js, Python, MongoDB, AWS CLI など）
 4. ✅ **VS Code拡張機能** 25個インストール
 5. ✅ **dotfiles** のシンボリックリンク作成（.zshrc, .gitconfig）
-6. ✅ **NVM** インストール（Node.jsバージョン管理）
+6. ✅ **Claude Code設定** 適用（パーミッション設定）
+7. ✅ **NVM** インストール（Node.jsバージョン管理）
 
 ---
 
@@ -308,6 +310,7 @@ pip     # pip3.12
 ├── .gitconfig                    # Git設定
 ├── .gitconfig.local.template     # Git個人設定のテンプレート
 ├── .env.template                 # 環境変数のテンプレート
+├── .claude-settings.local.json   # Claude Code設定（パーミッション等）
 ├── .gitignore                    # 除外ファイル
 ├── iterm2/                       # iTerm2設定
 │   ├── com.googlecode.iterm2.plist  # iTerm2全体設定（Hotkey Window等）
