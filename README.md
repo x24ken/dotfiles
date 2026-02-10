@@ -46,6 +46,8 @@ SETUP_GUIDE.md に従ってセットアップして！
 - dotfilesリポジトリのクローン
 - 全パッケージのインストール
 - oh-my-zsh + プラグインのインストール
+- iTerm2設定の適用
+- macOSシステム設定の適用（Dock、Finder、キーボードなど）
 - 設定ファイルのシンボリックリンク作成
 - 個人設定ファイルの作成（対話形式）
 - エラー対応
@@ -137,7 +139,16 @@ exec zsh
 ### VS Code 拡張機能
 Tailwind CSS, ESLint, Prettier, GitLens, Thunder Client, Prisma, Vitest など
 
-**📋 詳細**: 各パッケージの詳しい説明は [PACKAGES.md](./PACKAGES.md) を参照してください。
+### macOSシステム設定
+- Dock（サイズ53、下配置、自動非表示）
+- Finder（隠しファイル表示、拡張子表示）
+- キーボード（高速リピート）
+- トラックパッド（タップでクリック）
+- スクリーンショット（クリップボードのみ）
+
+**📋 詳細**:
+- パッケージの詳細 → [PACKAGES.md](./PACKAGES.md)
+- macOS設定の詳細 → [MACOS_SETTINGS.md](./MACOS_SETTINGS.md)
 
 ---
 
@@ -238,6 +249,7 @@ pip     # pip3.12
 ~/dotfiles/
 ├── bootstrap-minimal.sh          # フェーズ1: 最小限のツールインストール
 ├── setup.sh                      # フェーズ2: メインセットアップスクリプト
+├── macos-defaults.sh             # macOSシステム設定スクリプト
 ├── SETUP_GUIDE.md                # Claude Code向けセットアップ手順書
 ├── Brewfile                      # Homebrewパッケージリスト
 ├── .zshrc                        # zsh設定

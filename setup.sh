@@ -140,6 +140,21 @@ else
     echo "✅ NVM は既にインストールされています"
 fi
 
+# 8. macOSシステム設定の適用（オプション）
+echo ""
+if [ -f "${DOTFILES_DIR}/macos-defaults.sh" ]; then
+    echo "🖥️  macOSシステム設定を適用しますか？"
+    echo "（Dock、Finder、キーボード、トラックパッドなどの設定）"
+    read -p "適用しますか？ (y/N): " -n 1 -r
+    echo
+    if [[ $REPLY =~ ^[Yy]$ ]]; then
+        bash "${DOTFILES_DIR}/macos-defaults.sh"
+    else
+        echo "⏭️  macOS設定の適用をスキップしました"
+        echo "後で適用する場合: bash ~/dotfiles/macos-defaults.sh"
+    fi
+fi
+
 echo ""
 echo "✅ セットアップ完了！"
 echo ""

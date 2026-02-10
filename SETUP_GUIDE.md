@@ -45,6 +45,8 @@ cd dotfiles
    - Dynamic Profiles（自動色分け）
    - 全体設定（Hotkey Window、キーバインドなど）← 確認後にインポート
 6. NVMのインストール
+7. macOSシステム設定の適用（オプション）
+   - Dock、Finder、キーボード、トラックパッドなど ← 確認後に適用
 
 **エラーハンドリング**:
 - Homebrewのエラー → `brew update && brew doctor` を実行してから再試行
