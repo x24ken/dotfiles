@@ -4,51 +4,89 @@
 
 ## ⚡ クイックスタート（新しいMac）
 
-**ターミナルでこれ1行だけ実行：**
+### ステップ1: 基本ツールのインストール
+
+ターミナルでこれをコピペ実行：
 
 ```bash
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/x24ken/dotfiles/main/bootstrap.sh)"
+# Command Line Tools のインストール
+xcode-select --install
+
+# Homebrew のインストール
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# Apple Silicon の場合、PATH を追加
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# GitHub CLI のインストール
+brew install gh
+
+# GitHub 認証
+gh auth login
 ```
 
-### 何が実行されるか
+`gh auth login` では以下を選択：
+1. **GitHub.com**
+2. **HTTPS**
+3. **Login with a web browser**（ブラウザでログイン）
 
-1. **Command Line Tools** のインストール（Gitなどの基本ツール）
-2. **Homebrew** のインストール（パッケージマネージャー）
-3. **このリポジトリ** をクローン（`~/dotfiles`）
-4. **セットアップスクリプト** を実行：
-   - oh-my-zsh + プラグインのインストール
-   - Homebrewパッケージ一括インストール（82個）
-   - VS Code拡張機能インストール
-   - dotfilesのシンボリックリンク作成
-
-### セットアップ後にやること
-
-個人設定ファイルを編集（名前、メール、トークンなど）：
+### ステップ2: 自動セットアップ実行
 
 ```bash
-# Git設定
+# リポジトリをクローン
+cd ~
+gh repo clone x24ken/dotfiles
+cd dotfiles
+
+# セットアップスクリプトを実行
+./setup.sh
+```
+
+### ステップ3: 個人設定（1分）
+
+```bash
+# Git設定（名前とメールアドレス）
 nano ~/.gitconfig.local
 
-# 環境変数（トークンなど）
+# 環境変数（GitHubトークンなど）
 nano ~/.env
 
-# シェル再起動
+# シェルを再起動
 exec zsh
 ```
+
+**完了！🎉**
+
+---
+
+## 📋 何が実行されるか
+
+`setup.sh` が以下を自動実行します：
+
+1. ✅ **oh-my-zsh** インストール
+2. ✅ **zshプラグイン** インストール（syntax-highlighting, autosuggestions, you-should-use）
+3. ✅ **82個のパッケージ** 一括インストール（Node.js, Python, MongoDB, AWS CLI など）
+4. ✅ **VS Code拡張機能** 25個インストール
+5. ✅ **dotfiles** のシンボリックリンク作成（.zshrc, .gitconfig）
+6. ✅ **NVM** インストール（Node.jsバージョン管理）
 
 ---
 
 ## 📦 含まれるもの
 
 ### ツール・パッケージ
-- **開発ツール**: Git, GitHub CLI, jq, tree
-- **開発環境**: Node.js (nvm), Python (複数バージョン), Java, MongoDB
+- **開発ツール**: Git, GitHub CLI (gh), jq, tree
+- **開発環境**: Node.js (nvm, n, nodebrew), Python (複数バージョン, pyenv), Java (OpenJDK 11/17), MongoDB
 - **エディタ**: VS Code + 拡張機能25個
-- **その他**: AWS CLI, Heroku CLI, yt-dlp など
+- **その他**: AWS CLI, Heroku CLI, yt-dlp, Deno, Bun
 
 ### シェル環境
 - **zsh** + **oh-my-zsh** (agnosterテーマ)
 - **プラグイン**: zsh-syntax-highlighting, zsh-autosuggestions, you-should-use
+
+### VS Code 拡張機能
+Tailwind CSS, ESLint, Prettier, GitLens, Thunder Client, Prisma, Vitest など
 
 ---
 
@@ -59,13 +97,27 @@ exec zsh
 - `~/.gitconfig.local` - Git個人設定（名前、メール）
 - `~/.env` - トークンなどの秘密情報
 
-これらは`.gitignore`で除外されているため、GitHubに公開されません。
+これらは`.gitignore`で除外されているため、Gitにコミットされません。
+
+### 個人設定ファイルの編集
+
+#### ~/.gitconfig.local
+```gitconfig
+[user]
+    name = Your Name
+    email = your.email@example.com
+```
+
+#### ~/.env
+```bash
+export GITHUB_PERSONAL_ACCESS_TOKEN="your_token_here"
+```
 
 ---
 
 ## 🔄 既存環境の更新
 
-設定を変更したら：
+### 設定ファイルを変更したら
 
 ```bash
 cd ~/dotfiles
@@ -74,7 +126,7 @@ git commit -m "Update config"
 git push
 ```
 
-Homebrewパッケージを追加したら：
+### Homebrewパッケージを追加したら
 
 ```bash
 cd ~/dotfiles
@@ -84,6 +136,14 @@ git commit -m "Update Brewfile"
 git push
 ```
 
+### 別のMacで最新版を取得
+
+```bash
+cd ~/dotfiles
+git pull
+./setup.sh
+```
+
 ---
 
 ## 🎯 便利なエイリアス
@@ -91,10 +151,13 @@ git push
 ### Claude Code - 複数アカウント管理
 
 ```bash
-cc              # personalアカウント
-cc solvere      # solvereアカウント
+cc              # personalアカウントで使用
+cc solvere      # solvereアカウントで使用
+ccs             # solvereアカウント専用ショートカット
+
 ccr             # resume機能付き (personal)
 ccr solvere     # resume機能付き (solvere)
+ccrs            # resume機能付き (solvere専用)
 ```
 
 ### Git エイリアス
@@ -109,13 +172,19 @@ git ds  # diff --staged
 gw      # git worktree
 ```
 
+### Python エイリアス
+
+```bash
+python  # python3.12
+pip     # pip3.12
+```
+
 ---
 
 ## 📁 ファイル構成
 
 ```
 ~/dotfiles/
-├── bootstrap.sh                  # ブートストラップスクリプト（ワンライナー用）
 ├── setup.sh                      # メインセットアップスクリプト
 ├── Brewfile                      # Homebrewパッケージリスト
 ├── .zshrc                        # zsh設定
@@ -128,55 +197,104 @@ gw      # git worktree
 
 ---
 
-## 🛠️ 手動セットアップ（トラブルシューティング用）
-
-ワンライナーが失敗する場合、手動で実行：
-
-```bash
-# 1. Command Line Tools
-xcode-select --install
-
-# 2. Homebrew
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-# Apple Siliconの場合
-echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
-eval "$(/opt/homebrew/bin/brew shellenv)"
-
-# 3. リポジトリクローン
-cd ~
-git clone https://github.com/x24ken/dotfiles.git
-cd dotfiles
-
-# 4. セットアップ実行
-./setup.sh
-
-# 5. 個人設定
-cp .gitconfig.local.template ~/.gitconfig.local
-cp .env.template ~/.env
-nano ~/.gitconfig.local
-nano ~/.env
-
-# 6. シェル再起動
-exec zsh
-```
-
----
-
 ## ⚠️ トラブルシューティング
 
-### Command Line Tools のインストールが止まる場合
+### Command Line Tools のインストールが失敗する
 
 App Storeから手動でインストール：
 1. App Store を開く
-2. "Xcode" で検索
-3. インストール後、`xcode-select --install` を実行
+2. "Xcode" で検索してインストール
+3. 再度 `xcode-select --install` を実行
 
 ### Homebrew のエラー
 
 ```bash
 brew update
 brew doctor
+```
+
+### oh-my-zsh のインストールが失敗する
+
+```bash
+rm -rf ~/.oh-my-zsh
+cd ~/dotfiles
+./setup.sh
+```
+
+### VS Code拡張機能がインストールされない
+
+Brewfileから手動でインストール：
+```bash
+cd ~/dotfiles
+brew bundle --file=Brewfile
+```
+
+### シンボリックリンクのエラー
+
+既存のファイルをバックアップ：
+```bash
+mv ~/.zshrc ~/.zshrc.backup
+mv ~/.gitconfig ~/.gitconfig.backup
+cd ~/dotfiles
+./setup.sh
+```
+
+---
+
+## 🚀 応用：複数Macで設定を同期
+
+### Mac A で設定を変更
+
+```bash
+cd ~/dotfiles
+# 設定ファイルを編集
+nano .zshrc
+git add .zshrc
+git commit -m "Update zsh config"
+git push
+```
+
+### Mac B で最新版を取得
+
+```bash
+cd ~/dotfiles
+git pull
+exec zsh  # シェルを再起動して反映
+```
+
+---
+
+## 📚 参考リンク
+
+- [Homebrew](https://brew.sh/)
+- [oh-my-zsh](https://ohmyz.sh/)
+- [GitHub CLI](https://cli.github.com/)
+- [VS Code](https://code.visualstudio.com/)
+
+---
+
+## 💡 カスタマイズのヒント
+
+### 自分好みのテーマに変更
+
+`.zshrc`の5行目を編集：
+```bash
+ZSH_THEME="robbyrussell"  # または powerlevel10k など
+```
+
+### VS Code設定を追加
+
+```bash
+# 現在のVS Code設定をエクスポート
+code --list-extensions > ~/dotfiles/vscode-extensions.txt
+```
+
+### エイリアスを追加
+
+`.zshrc`にカスタムエイリアスを追加：
+```bash
+alias ll="ls -la"
+alias dc="docker-compose"
 ```
 
 ---
