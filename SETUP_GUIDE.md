@@ -41,7 +41,9 @@ cd dotfiles
 2. oh-my-zshのインストール
 3. zshプラグインのインストール
 4. dotfilesのシンボリックリンク作成（.zshrc, .gitconfig）
-5. iTerm2 Dynamic Profilesの設定
+5. iTerm2設定の適用
+   - Dynamic Profiles（自動色分け）
+   - 全体設定（Hotkey Window、キーバインドなど）← 確認後にインポート
 6. NVMのインストール
 
 **エラーハンドリング**:
@@ -213,13 +215,17 @@ exec zsh
 - Python環境（pyenv）
 - MongoDB
 - VS Code + 拡張機能
-- iTerm2 Dynamic Profiles（プロジェクトごとの色分け）
+- iTerm2設定
+  - Dynamic Profiles（プロジェクトごとの色分け）
+  - Hotkey Window（Ctrl+Ctrl で上から表示）
+  - キーバインド、ウィンドウ設定など
 
 設定ファイル：
 - ~/.zshrc → ~/dotfiles/.zshrc
 - ~/.gitconfig → ~/dotfiles/.gitconfig
 - ~/.gitconfig.local（個人設定）
 - ~/.env（環境変数）
+- ~/Library/Preferences/com.googlecode.iterm2.plist（iTerm2設定）
 - ~/Library/Application Support/iTerm2/DynamicProfiles/profiles.json
 
 便利なエイリアス：
