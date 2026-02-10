@@ -26,10 +26,22 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/x24ken/dotfiles/main/boo
 
 ---
 
-### フェーズ2: Claude Codeで自動セットアップ
+### フェーズ2: リポジトリのクローンとセットアップ
 
-Claude Codeを起動して、以下のように指示するだけ：
+#### 2-1. iTerm2を起動（推奨）
+```
+Spotlight（⌘+Space）で「iTerm」と入力して起動
+※ 標準Terminalでも続行可能
+```
 
+#### 2-2. dotfilesリポジトリをクローン
+```bash
+cd ~
+gh repo clone x24ken/dotfiles
+cd dotfiles
+```
+
+#### 2-3. Claude Codeで自動セットアップ
 ```bash
 # Claude Code起動
 cc
@@ -38,7 +50,6 @@ cc
 Claude Codeに以下のように伝えてください：
 
 ```
-~/dotfiles リポジトリをクローンして、
 SETUP_GUIDE.md に従ってセットアップして！
 ```
 

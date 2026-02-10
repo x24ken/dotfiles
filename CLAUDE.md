@@ -101,14 +101,12 @@
 
 ## 📝 セットアップ手順の概要
 
-1. **リポジトリのクローン**
-   ```bash
-   cd ~
-   gh repo clone x24ken/dotfiles
-   cd dotfiles
-   ```
+**前提**: ユーザーは既に以下を実行済み
+- `bootstrap-minimal.sh`の実行完了
+- リポジトリのクローン完了（`~/dotfiles`ディレクトリに存在）
+- `cd ~/dotfiles`で移動済み
 
-2. **setup.shの実行**
+1. **setup.shの実行**
    ```bash
    ./setup.sh
    ```
