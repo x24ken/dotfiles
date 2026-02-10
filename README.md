@@ -10,40 +10,72 @@ Claude Codeを活用して、セットアップを自動化します。
 
 ---
 
-### フェーズ1: 最小限のツールをインストール（5分）
+### 準備: ターミナルを開く
 
-ターミナルでこれ1行だけ実行：
-
-```bash
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/x24ken/dotfiles/main/bootstrap-minimal.sh)"
-```
-
-**インストールされるもの**:
-- Command Line Tools
-- Homebrew
-- GitHub CLI（認証付き）
-- Claude Code
+**ターミナル.app を起動：**
+1. Spotlight検索を開く（`⌘` + `Space`）
+2. 「ターミナル」または「terminal」と入力
+3. 「ターミナル.app」を選択してEnter
 
 ---
 
-### フェーズ2: リポジトリのクローンとセットアップ
+### フェーズ1: 基本ツールのインストール（5分）
 
-#### 2-1. iTerm2を起動（推奨）
+ターミナルで以下のコマンドを順番に実行：
+
+#### 1-1. Command Line Tools のインストール
+```bash
+xcode-select --install
 ```
-Spotlight（⌘+Space）で「iTerm」と入力して起動
-※ 標準Terminalでも続行可能
+→ ダイアログが表示されたら指示に従ってインストール
+
+#### 1-2. Homebrew のインストール
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# Apple Silicon の場合のみ実行
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
+eval "$(/opt/homebrew/bin/brew shellenv)"
 ```
 
-#### 2-2. dotfilesリポジトリをクローン
+#### 1-3. GitHub CLI のインストールと認証
+```bash
+brew install gh
+gh auth login
+```
+→ 以下を選択：
+1. GitHub.com
+2. HTTPS
+3. Login with a web browser
+
+#### 1-4. リポジトリのクローン
 ```bash
 cd ~
 gh repo clone x24ken/dotfiles
 cd dotfiles
 ```
 
+#### 1-5. iTerm2とClaude Codeのインストール
+```bash
+./bootstrap-minimal.sh
+```
+
+---
+
+### フェーズ2: iTerm2でClaude Codeセットアップ
+
+#### 2-1. iTerm2を起動
+```
+Spotlight（⌘+Space）で「iTerm」と入力して起動
+```
+
+#### 2-2. dotfilesディレクトリに移動
+```bash
+cd ~/dotfiles
+```
+
 #### 2-3. Claude Codeで自動セットアップ
 ```bash
-# Claude Code起動
 cc
 ```
 
@@ -54,8 +86,7 @@ SETUP_GUIDE.md に従ってセットアップして！
 ```
 
 **Claude Codeが自動で実行すること**:
-- dotfilesリポジトリのクローン
-- 全パッケージのインストール
+- 全パッケージのインストール（82個）
 - oh-my-zsh + プラグインのインストール
 - iTerm2設定の適用
 - macOSシステム設定の適用（Dock、Finder、キーボードなど）
