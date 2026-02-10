@@ -8,8 +8,6 @@ brew "gh"
 brew "jq"
 brew "node"
 brew "mongosh"
-brew "n"
-brew "nodebrew"
 brew "openjdk@11"
 brew "openjdk@17", link: true
 brew "pyenv"
