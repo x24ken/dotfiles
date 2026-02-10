@@ -75,9 +75,18 @@ cd ~/dotfiles
 ```
 
 #### 2-3. Claude Codeで自動セットアップ
+
+**重要**: この時点ではまだ`cc`エイリアスが設定されていないため、完全なコマンドを使用します。
+
 ```bash
-cc
+claude --dangerously-skip-permissions
 ```
+
+**初回起動時の認証**:
+1. ブラウザが自動で開き、Claude.ai のログインページが表示されます
+2. Claude.ai にログイン（既存アカウントまたは新規作成）
+3. 「Authorize」をクリックして認証
+4. ターミナルに戻り、Claude Codeが起動します
 
 Claude Codeに以下のように伝えてください：
 
