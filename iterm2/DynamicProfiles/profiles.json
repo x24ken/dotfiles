@@ -1,247 +1,253 @@
 {
   "Profiles" : [
     {
-      "Guid" : "hotkey-window-001",
-      "Name" : "Hotkey Window",
-      "Dynamic Profile Parent Name" : "Default",
-      "Has Hotkey" : true,
-      "HotKey Activated By Modifier" : true,
-      "HotKey Modifier Activation" : 0,
-      "HotKey Modifier Flags" : 0,
-      "HotKey Key Code" : 0,
-      "HotKey Characters" : "",
-      "HotKey Characters Ignoring Modifiers" : "",
-      "HotKey Alternate Shortcuts" : [],
-      "HotKey Window Floats" : true,
       "HotKey Window Animates" : true,
-      "HotKey Window AutoHides" : false,
-      "HotKey Window Dock Click Action" : 1,
-      "HotKey Window Reopens On Activation" : false,
-      "Window Type" : 2,
-      "Normal Font" : "NotoMonoForPowerline 24",
-      "Transparency" : 0.1,
+      "Has Hotkey" : true,
+      "Tags" : [
+
+      ],
+      "HotKey Modifier Activation" : 0,
+      "HotKey Alternate Shortcuts" : [
+
+      ],
+      "HotKey Modifier Flags" : 0,
       "Initial Use Transparency" : true,
-      "Tags" : []
+      "HotKey Characters Ignoring Modifiers" : "",
+      "Name" : "Hotkey Window",
+      "HotKey Window Dock Click Action" : 1,
+      "Window Type" : 2,
+      "HotKey Activated By Modifier" : true,
+      "HotKey Window Floats" : true,
+      "Normal Font" : "NotoMonoForPowerline 24",
+      "HotKey Key Code" : 0,
+      "HotKey Window AutoHides" : false,
+      "Rewritable" : true,
+      "HotKey Window Reopens On Activation" : false,
+      "Transparency" : 0.10000000000000001,
+      "Space" : -1,
+      "Dynamic Profile Parent Name" : "Default",
+      "Guid" : "hotkey-window-001",
+      "HotKey Characters" : ""
     },
     {
       "Rewritable" : true,
       "Guid" : "algomatic-001",
-      "Use Tab Color" : true,
+      "Dynamic Profile Parent Name" : "Default",
       "Name" : "Algomatic",
       "Bound Hosts" : [
         "\/Users\/x24ken\/algomatic\/*"
       ],
       "Window Type" : 0,
       "Tab Color" : {
-        "Red Component" : 0.05,
-        "Blue Component" : 0.32,
+        "Red Component" : 0.050000000000000003,
+        "Blue Component" : 0.32000000000000001,
         "Alpha Component" : 1,
-        "Green Component" : 0.23
+        "Green Component" : 0.23000000000000001
       },
       "Badge Text" : "🌐 Algomatic",
       "Badge Color" : {
-        "Red Component" : 0.05,
-        "Blue Component" : 0.32,
+        "Red Component" : 0.050000000000000003,
+        "Blue Component" : 0.32000000000000001,
         "Alpha Component" : 0.5,
-        "Green Component" : 0.23
+        "Green Component" : 0.23000000000000001
       },
       "Tags" : [
         "algomatic",
         "work"
       ],
+      "Cursor Guide Color" : {
+        "Red Component" : 0.050000000000000003,
+        "Blue Component" : 0.32000000000000001,
+        "Alpha Component" : 0.25,
+        "Green Component" : 0.23000000000000001
+      },
       "Automatic Profile Switching Rules" : [
         "\/Users\/x24ken\/algomatic\/*"
       ],
-      "Cursor Guide Color" : {
-        "Red Component" : 0.05,
-        "Blue Component" : 0.32,
-        "Alpha Component" : 0.25,
-        "Green Component" : 0.23
-      },
       "Cursor Type" : 2,
       "Custom Directory" : "Recycle",
-      "Dynamic Profile Parent Name" : "Default",
+      "Use Tab Color" : true,
       "Cursor Color" : {
-        "Green Component" : 0.23,
-        "Red Component" : 0.05,
-        "Blue Component" : 0.32
+        "Green Component" : 0.23000000000000001,
+        "Red Component" : 0.050000000000000003,
+        "Blue Component" : 0.32000000000000001
       }
     },
     {
       "Rewritable" : true,
       "Guid" : "obsidian-001",
-      "Use Tab Color" : true,
+      "Dynamic Profile Parent Name" : "Default",
       "Name" : "Obsidian",
       "Bound Hosts" : [
         "\/Users\/x24ken\/obsidian\/*"
       ],
       "Window Type" : 0,
       "Tab Color" : {
-        "Red Component" : 0.545,
-        "Blue Component" : 0.965,
+        "Red Component" : 0.54500000000000004,
+        "Blue Component" : 0.96499999999999997,
         "Alpha Component" : 1,
-        "Green Component" : 0.361
+        "Green Component" : 0.36099999999999999
       },
       "Badge Text" : "📝 Obsidian",
       "Badge Color" : {
-        "Red Component" : 0.545,
-        "Blue Component" : 0.965,
+        "Red Component" : 0.54500000000000004,
+        "Blue Component" : 0.96499999999999997,
         "Alpha Component" : 0.5,
-        "Green Component" : 0.361
+        "Green Component" : 0.36099999999999999
       },
       "Tags" : [
         "obsidian",
         "notes"
       ],
+      "Cursor Guide Color" : {
+        "Red Component" : 0.54500000000000004,
+        "Blue Component" : 0.96499999999999997,
+        "Alpha Component" : 0.25,
+        "Green Component" : 0.36099999999999999
+      },
       "Automatic Profile Switching Rules" : [
         "\/Users\/x24ken\/obsidian\/*"
       ],
-      "Cursor Guide Color" : {
-        "Red Component" : 0.545,
-        "Blue Component" : 0.965,
-        "Alpha Component" : 0.25,
-        "Green Component" : 0.361
-      },
       "Cursor Type" : 2,
       "Custom Directory" : "Recycle",
-      "Dynamic Profile Parent Name" : "Default",
+      "Use Tab Color" : true,
       "Cursor Color" : {
-        "Green Component" : 0.361,
-        "Red Component" : 0.545,
-        "Blue Component" : 0.965
+        "Green Component" : 0.36099999999999999,
+        "Red Component" : 0.54500000000000004,
+        "Blue Component" : 0.96499999999999997
       }
     },
     {
       "Rewritable" : true,
       "Guid" : "ticktick-001",
-      "Use Tab Color" : true,
+      "Dynamic Profile Parent Name" : "Default",
       "Name" : "TickTick",
       "Bound Hosts" : [
         "\/Users\/x24ken\/ticktick\/*"
       ],
       "Window Type" : 0,
       "Tab Color" : {
-        "Red Component" : 0.85,
-        "Blue Component" : 0.0,
+        "Red Component" : 0.84999999999999998,
+        "Blue Component" : 0,
         "Alpha Component" : 1,
-        "Green Component" : 0.55
+        "Green Component" : 0.55000000000000004
       },
       "Badge Text" : "✔️ TickTick",
       "Badge Color" : {
-        "Red Component" : 0.85,
-        "Blue Component" : 0.0,
+        "Red Component" : 0.84999999999999998,
+        "Blue Component" : 0,
         "Alpha Component" : 0.5,
-        "Green Component" : 0.55
+        "Green Component" : 0.55000000000000004
       },
       "Tags" : [
         "ticktick",
         "tasks"
       ],
+      "Cursor Guide Color" : {
+        "Red Component" : 0.84999999999999998,
+        "Blue Component" : 0,
+        "Alpha Component" : 0.25,
+        "Green Component" : 0.55000000000000004
+      },
       "Automatic Profile Switching Rules" : [
         "\/Users\/x24ken\/ticktick\/*"
       ],
-      "Cursor Guide Color" : {
-        "Red Component" : 0.85,
-        "Blue Component" : 0.0,
-        "Alpha Component" : 0.25,
-        "Green Component" : 0.55
-      },
       "Cursor Type" : 2,
       "Custom Directory" : "Recycle",
-      "Dynamic Profile Parent Name" : "Default",
+      "Use Tab Color" : true,
       "Cursor Color" : {
-        "Green Component" : 0.55,
-        "Red Component" : 0.85,
-        "Blue Component" : 0.0
+        "Green Component" : 0.55000000000000004,
+        "Red Component" : 0.84999999999999998,
+        "Blue Component" : 0
       }
     },
     {
       "Rewritable" : true,
       "Guid" : "kotodaman-001",
-      "Use Tab Color" : true,
+      "Dynamic Profile Parent Name" : "Default",
       "Name" : "Kotodaman",
       "Bound Hosts" : [
         "\/Users\/x24ken\/kotodaman\/*"
       ],
       "Window Type" : 0,
       "Tab Color" : {
-        "Red Component" : 0.0,
-        "Blue Component" : 1.0,
+        "Red Component" : 0,
+        "Blue Component" : 1,
         "Alpha Component" : 1,
-        "Green Component" : 0.7
+        "Green Component" : 0.69999999999999996
       },
       "Badge Text" : "✨ Kotodaman",
       "Badge Color" : {
-        "Red Component" : 0.0,
-        "Blue Component" : 1.0,
+        "Red Component" : 0,
+        "Blue Component" : 1,
         "Alpha Component" : 0.5,
-        "Green Component" : 0.7
+        "Green Component" : 0.69999999999999996
       },
       "Tags" : [
         "kotodaman",
         "game"
       ],
+      "Cursor Guide Color" : {
+        "Red Component" : 0,
+        "Blue Component" : 1,
+        "Alpha Component" : 0.25,
+        "Green Component" : 0.69999999999999996
+      },
       "Automatic Profile Switching Rules" : [
         "\/Users\/x24ken\/kotodaman\/*"
       ],
-      "Cursor Guide Color" : {
-        "Red Component" : 0.0,
-        "Blue Component" : 1.0,
-        "Alpha Component" : 0.25,
-        "Green Component" : 0.7
-      },
       "Cursor Type" : 2,
       "Custom Directory" : "Recycle",
-      "Dynamic Profile Parent Name" : "Default",
+      "Use Tab Color" : true,
       "Cursor Color" : {
-        "Green Component" : 0.7,
-        "Red Component" : 0.0,
-        "Blue Component" : 1.0
+        "Green Component" : 0.69999999999999996,
+        "Red Component" : 0,
+        "Blue Component" : 1
       }
     },
     {
       "Rewritable" : true,
       "Guid" : "solvere-001",
-      "Use Tab Color" : true,
+      "Dynamic Profile Parent Name" : "Default",
       "Name" : "Solvere",
       "Bound Hosts" : [
         "\/Users\/x24ken\/solvere\/*"
       ],
       "Window Type" : 0,
       "Tab Color" : {
-        "Red Component" : 0.15,
+        "Red Component" : 0.14999999999999999,
         "Blue Component" : 0.25,
         "Alpha Component" : 1,
-        "Green Component" : 0.45
+        "Green Component" : 0.45000000000000001
       },
       "Badge Text" : "🧩 Solvere",
       "Badge Color" : {
-        "Red Component" : 0.2,
-        "Blue Component" : 0.35,
+        "Red Component" : 0.20000000000000001,
+        "Blue Component" : 0.34999999999999998,
         "Alpha Component" : 0.5,
-        "Green Component" : 0.65
+        "Green Component" : 0.65000000000000002
       },
       "Tags" : [
         "solvere",
         "ai",
         "problem-solving"
       ],
+      "Cursor Guide Color" : {
+        "Red Component" : 0.20000000000000001,
+        "Blue Component" : 0.40000000000000002,
+        "Alpha Component" : 0.25,
+        "Green Component" : 0.59999999999999998
+      },
       "Automatic Profile Switching Rules" : [
         "\/Users\/x24ken\/solvere\/*"
       ],
-      "Cursor Guide Color" : {
-        "Red Component" : 0.2,
-        "Blue Component" : 0.4,
-        "Alpha Component" : 0.25,
-        "Green Component" : 0.6
-      },
       "Cursor Type" : 2,
       "Custom Directory" : "Recycle",
-      "Dynamic Profile Parent Name" : "Default",
+      "Use Tab Color" : true,
       "Cursor Color" : {
         "Green Component" : 0.75,
         "Red Component" : 0.5,
-        "Blue Component" : 0.6
+        "Blue Component" : 0.59999999999999998
       }
     }
   ]
