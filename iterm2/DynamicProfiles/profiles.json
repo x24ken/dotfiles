@@ -1,33 +1,17 @@
 {
   "Profiles" : [
     {
-      "HotKey Window Animates" : true,
-      "Has Hotkey" : true,
-      "Tags" : [
-
-      ],
-      "HotKey Modifier Activation" : 0,
-      "HotKey Alternate Shortcuts" : [
-
-      ],
-      "HotKey Modifier Flags" : 0,
-      "Initial Use Transparency" : true,
-      "HotKey Characters Ignoring Modifiers" : "",
-      "Name" : "Hotkey Window",
-      "HotKey Window Dock Click Action" : 1,
-      "Window Type" : 2,
       "HotKey Activated By Modifier" : true,
-      "HotKey Window Floats" : true,
-      "Normal Font" : "NotoMonoForPowerline 24",
-      "HotKey Key Code" : 0,
-      "HotKey Window AutoHides" : false,
+      "Has Hotkey" : true,
       "Rewritable" : true,
-      "HotKey Window Reopens On Activation" : false,
+      "Window Type" : 2,
+      "HotKey Window AutoHides" : false,
       "Transparency" : 0.10000000000000001,
+      "Guid" : "hotkey-window-001",
+      "Name" : "Hotkey Window",
       "Space" : -1,
       "Dynamic Profile Parent Name" : "Default",
-      "Guid" : "hotkey-window-001",
-      "HotKey Characters" : ""
+      "HotKey Window Dock Click Action" : 1
     }
   ]
 }
