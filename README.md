@@ -4,9 +4,64 @@
 
 ## ⚡ クイックスタート（新しいMac）
 
-### ステップ1: 基本ツールのインストール
+### 🎯 新しいアプローチ：Claude Code自動セットアップ
 
-ターミナルでこれをコピペ実行：
+Claude Codeを活用して、セットアップを自動化します。
+
+---
+
+### フェーズ1: 最小限のツールをインストール（5分）
+
+ターミナルでこれ1行だけ実行：
+
+```bash
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/x24ken/dotfiles/main/bootstrap-minimal.sh)"
+```
+
+**インストールされるもの**:
+- Command Line Tools
+- Homebrew
+- GitHub CLI（認証付き）
+- Claude Code
+
+---
+
+### フェーズ2: Claude Codeで自動セットアップ
+
+Claude Codeを起動して、以下のように指示するだけ：
+
+```bash
+# Claude Code起動
+cc
+```
+
+Claude Codeに以下のように伝えてください：
+
+```
+~/dotfiles リポジトリをクローンして、
+SETUP_GUIDE.md に従ってセットアップして！
+```
+
+**Claude Codeが自動で実行すること**:
+- dotfilesリポジトリのクローン
+- 全パッケージのインストール
+- oh-my-zsh + プラグインのインストール
+- 設定ファイルのシンボリックリンク作成
+- 個人設定ファイルの作成（対話形式）
+- エラー対応
+
+**完了！🎉**
+
+---
+
+### 📝 従来の手動セットアップ方法
+
+Claude Codeを使わない場合は、以下の手順でセットアップできます：
+
+<details>
+<summary>クリックして展開</summary>
+
+#### ステップ1: 基本ツールのインストール
 
 ```bash
 # Command Line Tools のインストール
@@ -26,37 +81,24 @@ brew install gh
 gh auth login
 ```
 
-`gh auth login` では以下を選択：
-1. **GitHub.com**
-2. **HTTPS**
-3. **Login with a web browser**（ブラウザでログイン）
-
-### ステップ2: 自動セットアップ実行
+#### ステップ2: セットアップ実行
 
 ```bash
-# リポジトリをクローン
 cd ~
 gh repo clone x24ken/dotfiles
 cd dotfiles
-
-# セットアップスクリプトを実行
 ./setup.sh
 ```
 
-### ステップ3: 個人設定（1分）
+#### ステップ3: 個人設定
 
 ```bash
-# Git設定（名前とメールアドレス）
 nano ~/.gitconfig.local
-
-# 環境変数（GitHubトークンなど）
 nano ~/.env
-
-# シェルを再起動
 exec zsh
 ```
 
-**完了！🎉**
+</details>
 
 ---
 
@@ -187,7 +229,9 @@ pip     # pip3.12
 
 ```
 ~/dotfiles/
-├── setup.sh                      # メインセットアップスクリプト
+├── bootstrap-minimal.sh          # フェーズ1: 最小限のツールインストール
+├── setup.sh                      # フェーズ2: メインセットアップスクリプト
+├── SETUP_GUIDE.md                # Claude Code向けセットアップ手順書
 ├── Brewfile                      # Homebrewパッケージリスト
 ├── .zshrc                        # zsh設定
 ├── .gitconfig                    # Git設定
