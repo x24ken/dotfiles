@@ -163,6 +163,9 @@ defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
 # ピリオド2回でのピリオド挿入を無効化
 defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -bool false
 
+# 日本語入力のライブ変換を無効化
+defaults write com.apple.inputmethod.Kotoeri JIMPrefLiveConversionKey -bool false
+
 ###############################################################################
 # アプリケーションの再起動                                                      #
 ###############################################################################

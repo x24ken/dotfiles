@@ -86,3 +86,6 @@ alias ccr='claude --resume'
 
 # iTerm2 Shell Integration
 [ -e "${HOME}/.iterm2_shell_integration.zsh" ] && source "${HOME}/.iterm2_shell_integration.zsh"
+
+# Use Cursor instead of VS Code
+alias code="cursor"
