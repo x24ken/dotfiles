@@ -78,8 +78,8 @@ exec zsh
 ### ツール・パッケージ
 - **開発ツール**: Git, GitHub CLI (gh), jq, tree
 - **開発環境**: Node.js (nvm, n, nodebrew), Python (複数バージョン, pyenv), Java (OpenJDK 11/17), MongoDB
-- **エディタ**: VS Code + 拡張機能25個
-- **その他**: AWS CLI, Heroku CLI, yt-dlp, Deno, Bun
+- **エディタ**: VS Code + 拡張機能24個
+- **その他**: AWS CLI, Heroku CLI, yt-dlp, MinIO CLI
 
 ### シェル環境
 - **zsh** + **oh-my-zsh** (agnosterテーマ)
@@ -87,6 +87,8 @@ exec zsh
 
 ### VS Code 拡張機能
 Tailwind CSS, ESLint, Prettier, GitLens, Thunder Client, Prisma, Vitest など
+
+**📋 詳細**: 各パッケージの詳しい説明は [PACKAGES.md](./PACKAGES.md) を参照してください。
 
 ---
 
@@ -192,6 +194,7 @@ pip     # pip3.12
 ├── .gitconfig.local.template     # Git個人設定のテンプレート
 ├── .env.template                 # 環境変数のテンプレート
 ├── .gitignore                    # 除外ファイル
+├── PACKAGES.md                   # パッケージ詳細説明
 └── README.md                     # このファイル
 ```
 
