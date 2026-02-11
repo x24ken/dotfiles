@@ -98,7 +98,6 @@ SETUP_GUIDE.md に従ってセットアップして！
 - 全パッケージのインストール（82個）
 - oh-my-zsh + プラグインのインストール
 - Claude Code設定の適用（パーミッション設定）
-- iTerm2設定の適用
 - macOSシステム設定の適用（Dock、Finder、キーボードなど）
 - 設定ファイルのシンボリックリンク作成
 - 個人設定ファイルの作成（対話形式）
@@ -181,13 +180,6 @@ exec zsh
 ### シェル環境
 - **zsh** + **oh-my-zsh** (agnosterテーマ)
 - **プラグイン**: zsh-syntax-highlighting, zsh-autosuggestions, you-should-use
-
-### iTerm2設定
-- **Dynamic Profiles**: プロジェクトごとに自動で色分け
-  - Algomatic 🌐, Obsidian 📝, TickTick ✔️, Kotodaman ✨, Solvere 🧩
-- **Hotkey Window**: Ctrl+Ctrl で上からニュっと表示
-- **キーバインド**: ペイン分割、タブ移動など
-- **ウィンドウ設定**: 透明度、フォントなど
 
 ### VS Code 拡張機能
 Tailwind CSS, ESLint, Prettier, GitLens, Thunder Client, Prisma, Vitest など
@@ -312,10 +304,6 @@ pip     # pip3.12
 ├── .env.template                 # 環境変数のテンプレート
 ├── .claude-settings.local.json   # Claude Code設定（パーミッション等）
 ├── .gitignore                    # 除外ファイル
-├── iterm2/                       # iTerm2設定
-│   ├── com.googlecode.iterm2.plist  # iTerm2全体設定（Hotkey Window等）
-│   └── DynamicProfiles/          # プロジェクトごとの色分け設定
-│       └── profiles.json
 ├── PACKAGES.md                   # パッケージ詳細説明
 └── README.md                     # このファイル
 ```

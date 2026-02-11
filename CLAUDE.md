@@ -26,7 +26,6 @@
   - Homebrewパッケージのインストール
   - oh-my-zsh + プラグインのインストール
   - dotfilesのシンボリックリンク作成
-  - iTerm2設定の適用
   - macOS設定の適用（ユーザー確認後）
 - **macos-defaults.sh**: macOSシステム設定スクリプト
   - Dock、Finder、キーボード、トラックパッドなどの設定
@@ -36,10 +35,6 @@
 - **Brewfile**: Homebrewパッケージリスト（約40パッケージ + VS Code拡張機能）
 - **.zshrc**: zsh設定（oh-my-zsh + プラグイン）
 - **.gitconfig**: Git設定（個人情報は.gitconfig.localに分離）
-- **iterm2/**: iTerm2設定
-  - `DynamicProfiles/profiles.json`: プロジェクトごとの色分け
-  - `com.googlecode.iterm2.plist`: 全体設定（Hotkey Window等）
-
 ### テンプレートファイル
 - **.gitconfig.local.template**: Git個人設定のテンプレート
 - **.env.template**: 環境変数のテンプレート
@@ -54,7 +49,6 @@
 
 ### 2. ユーザー確認
 以下の操作は**必ずユーザーに確認**してから実行：
-- iTerm2設定ファイル（plist）のインポート
 - macOSシステム設定の適用
 - 既存設定の上書き
 
@@ -114,7 +108,7 @@
    ./setup.sh
    ```
    - 確認プロンプトが複数回表示されます
-   - iTerm2設定、macOS設定は任意
+   - macOS設定は任意
 
 3. **個人設定ファイルの作成**
    - `.gitconfig.local.template` → `~/.gitconfig.local`
@@ -141,12 +135,7 @@
 - `pyenv`でPythonバージョンを管理
 - `.zshrc`で`python`は`python3`にエイリアス
 
-### 3. iTerm2設定
-- Dynamic Profilesは自動適用
-- plist設定はユーザー確認後にインポート
-- iTerm2の再起動が必要
-
-### 4. macOS設定
+### 3. macOS設定
 - システム設定を変更するため、必ずユーザーに確認
 - 適用後、DockとFinderが自動再起動される
 

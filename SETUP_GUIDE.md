@@ -44,10 +44,7 @@ cd dotfiles
 5. **Claude Code設定の適用**
    - パーミッション設定（ほぼすべてのコマンドを自動許可）
    - `~/.claude/settings.local.json` へのシンボリックリンク作成
-6. iTerm2設定の適用
-   - Dynamic Profiles（自動色分け）
-   - 全体設定（Hotkey Window、キーバインドなど）← 確認後にインポート
-7. NVMのインストール
+6. NVMのインストール
 8. macOSシステム設定の適用（オプション）
    - Dock、Finder、キーボード、トラックパッドなど ← 確認後に適用
 
@@ -202,7 +199,6 @@ exec zsh
 - [ ] oh-my-zshが動作している
 - [ ] NVMが動作している
 - [ ] エイリアス（cc, ccr等）が動作している
-- [ ] iTerm2 Dynamic Profilesが設定されている（iTerm2使用時）
 
 ---
 
@@ -221,18 +217,12 @@ exec zsh
 - Python環境（pyenv）
 - MongoDB
 - VS Code + 拡張機能
-- iTerm2設定
-  - Dynamic Profiles（プロジェクトごとの色分け）
-  - Hotkey Window（Ctrl+Ctrl で上から表示）
-  - キーバインド、ウィンドウ設定など
 
 設定ファイル：
 - ~/.zshrc → ~/dotfiles/.zshrc
 - ~/.gitconfig → ~/dotfiles/.gitconfig
 - ~/.gitconfig.local（個人設定）
 - ~/.env（環境変数）
-- ~/Library/Preferences/com.googlecode.iterm2.plist（iTerm2設定）
-- ~/Library/Application Support/iTerm2/DynamicProfiles/profiles.json
 
 便利なエイリアス：
 - cc: Claude Code起動

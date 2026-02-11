@@ -111,44 +111,6 @@ fi
 ln -sf "${DOTFILES_DIR}/.claude-settings.local.json" "$HOME/.claude/settings.local.json"
 echo "✅ Claude Code設定を適用しました"
 
-# iTerm2設定を適用
-echo "🎨 iTerm2設定を適用中..."
-
-# Dynamic Profilesのシンボリックリンクを作成
-ITERM2_PROFILES_DIR="$HOME/Library/Application Support/iTerm2/DynamicProfiles"
-mkdir -p "$ITERM2_PROFILES_DIR"
-
-if [ -f "${DOTFILES_DIR}/iterm2/DynamicProfiles/profiles.json" ]; then
-    ln -sf "${DOTFILES_DIR}/iterm2/DynamicProfiles/profiles.json" "$ITERM2_PROFILES_DIR/profiles.json"
-    echo "✅ iTerm2 Dynamic Profilesを設定しました"
-else
-    echo "⚠️  iTerm2プロファイルが見つかりません"
-fi
-
-# iTerm2設定ファイル全体をインポート
-if [ -f "${DOTFILES_DIR}/iterm2/com.googlecode.iterm2.plist" ]; then
-    echo "iTerm2の設定をインポートしますか？（Hotkey Window、キーバインドなど）"
-    echo "既存の設定は上書きされます。バックアップは自動で作成されます。"
-    read -p "インポートしますか？ (y/N): " -n 1 -r
-    echo
-    if [[ $REPLY =~ ^[Yy]$ ]]; then
-        # 既存設定をバックアップ
-        if [ -f "$HOME/Library/Preferences/com.googlecode.iterm2.plist" ]; then
-            cp "$HOME/Library/Preferences/com.googlecode.iterm2.plist" "$BACKUP_DIR/com.googlecode.iterm2.plist.backup"
-            echo "既存の設定をバックアップしました: $BACKUP_DIR/com.googlecode.iterm2.plist.backup"
-        fi
-
-        # 設定をコピー
-        cp "${DOTFILES_DIR}/iterm2/com.googlecode.iterm2.plist" "$HOME/Library/Preferences/com.googlecode.iterm2.plist"
-
-        # iTerm2を再起動して設定を反映
-        echo "✅ iTerm2設定をインポートしました"
-        echo "⚠️  設定を反映するには、iTerm2を再起動してください"
-    else
-        echo "⏭️  iTerm2設定のインポートをスキップしました"
-    fi
-fi
-
 # 7. テンプレートファイルから個人設定を作成
 echo "⚙️  個人設定ファイルの確認中..."
 

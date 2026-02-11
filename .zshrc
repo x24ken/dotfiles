@@ -87,8 +87,5 @@ alias ccr='claude --resume'
 # ローカル設定（マシン固有のカスタマイズ）
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 
-# iTerm2 Shell Integration
-[ -e "${HOME}/.iterm2_shell_integration.zsh" ] && source "${HOME}/.iterm2_shell_integration.zsh"
-
 # Use Cursor instead of VS Code
 alias code="cursor"
