@@ -55,26 +55,16 @@ gh repo clone x24ken/dotfiles
 cd dotfiles
 ```
 
-#### 1-5. iTerm2とClaude Codeのインストール
+#### 1-5. Claude Codeのインストール
 ```bash
 ./bootstrap-minimal.sh
 ```
 
 ---
 
-### フェーズ2: iTerm2でClaude Codeセットアップ
+### フェーズ2: Claude Codeで自動セットアップ
 
-#### 2-1. iTerm2を起動
-```
-Spotlight（⌘+Space）で「iTerm」と入力して起動
-```
-
-#### 2-2. dotfilesディレクトリに移動
-```bash
-cd ~/dotfiles
-```
-
-#### 2-3. Claude Codeで自動セットアップ
+#### 2-1. Claude Codeを起動
 
 **重要**: この時点ではまだ`cc`エイリアスが設定されていないため、完全なコマンドを使用します。
 
@@ -292,7 +282,7 @@ pip     # pip3.12
 
 ```
 ~/dotfiles/
-├── bootstrap-minimal.sh          # フェーズ1: 最小限のツールインストール
+├── bootstrap-minimal.sh          # フェーズ1: Claude Codeインストール
 ├── setup.sh                      # フェーズ2: メインセットアップスクリプト
 ├── macos-defaults.sh             # macOSシステム設定スクリプト
 ├── CLAUDE.md                     # Claude Code向けリポジトリ方針

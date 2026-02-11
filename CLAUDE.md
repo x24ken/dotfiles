@@ -100,8 +100,7 @@
 - Homebrew のインストール
 - GitHub CLI のインストールと認証
 - リポジトリのクローン完了（`~/dotfiles`ディレクトリに存在）
-- `bootstrap-minimal.sh`の実行完了（iTerm2とClaude Codeがインストール済み）
-- iTerm2を起動して `cd ~/dotfiles`で移動済み
+- `bootstrap-minimal.sh`の実行完了（Claude Codeがインストール済み）
 
 1. **setup.shの実行**
    ```bash
