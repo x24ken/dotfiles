@@ -70,8 +70,8 @@ alias python="python3"
 alias pip="pip3"
 
 # Claude Code
-alias cc='claude'
-alias ccr='claude --resume'
+alias cc='claude --dangerously-skip-permissions'
+alias ccr='claude --dangerously-skip-permissions --resume'
 
 
 # ============================================================
