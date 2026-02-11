@@ -5,9 +5,6 @@
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="agnoster"
 
-# プロンプトのコンテキスト表示を無効化
-prompt_context() { }
-
 # プラグイン
 plugins=(
     git
@@ -21,6 +18,9 @@ fpath=($^fpath(N-/))
 
 # oh-my-zshを読み込む
 source $ZSH/oh-my-zsh.sh
+
+# プロンプトのコンテキスト表示を無効化（ユーザー名@ホスト名を非表示）
+prompt_context() { }
 
 
 # ============================================================
