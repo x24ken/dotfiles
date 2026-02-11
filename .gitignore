@@ -4,6 +4,7 @@
 # 秘密情報（ローカルのみ）
 .env
 .gitconfig.local
+.zshrc.local
 
 # Backup files
 *.bak

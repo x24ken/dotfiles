@@ -70,8 +70,8 @@ alias python="python3"
 alias pip="pip3"
 
 # Claude Code
-alias cc='claude --dangerously-skip-permissions'
-alias ccr='claude --dangerously-skip-permissions --resume'
+alias cc='claude'
+alias ccr='claude --resume'
 
 
 # ============================================================
@@ -83,6 +83,9 @@ alias ccr='claude --dangerously-skip-permissions --resume'
 
 # ローカル環境変数
 [ -f "$HOME/.local/bin/env" ] && . "$HOME/.local/bin/env"
+
+# ローカル設定（マシン固有のカスタマイズ）
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
 
 # iTerm2 Shell Integration
 [ -e "${HOME}/.iterm2_shell_integration.zsh" ] && source "${HOME}/.iterm2_shell_integration.zsh"
