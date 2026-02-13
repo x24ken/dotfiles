@@ -29,7 +29,6 @@ prompt_context() { }
 
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="$HOME/.npm-global/bin:$PATH"
-export PATH="$BUN_INSTALL/bin:$PATH"
 
 
 # ============================================================
@@ -51,6 +50,7 @@ export NVM_DIR="$HOME/.nvm"
 
 # Bun
 export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
 # [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"  # コメントアウト: AVX警告の原因
 
 # Java (必要に応じてコメント解除)
