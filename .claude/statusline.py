@@ -55,41 +55,13 @@ def run_git(*args):
         return None
 
 def git_info():
-    branch = run_git('rev-parse', '--abbrev-ref', 'HEAD')
-    if branch is None:
-        return None
-
-    # Worktree detection
     git_dir = run_git('rev-parse', '--git-dir')
+    if git_dir is None:
+        return None
     common_dir = run_git('rev-parse', '--git-common-dir')
-    is_worktree = git_dir and common_dir and os.path.realpath(git_dir) != os.path.realpath(common_dir)
-
-    prefix = '🌲' if is_worktree else ''
-
-    # Status counts (compute before branch color)
-    status = run_git('status', '--porcelain')
-    staged = 0
-    modified = 0
-    untracked = 0
-    if status:
-        for line in status.splitlines():
-            if len(line) < 2:
-                continue
-            x, y = line[0], line[1]
-            if x in 'MADRC':
-                staged += 1
-            if y in 'MD':
-                modified += 1
-            if x == '?' and y == '?':
-                untracked += 1
-
-    # Branch color: dirty=yellow, clean=green (oh-my-zsh style)
-    if staged or modified or untracked:
-        branch_color = YELLOW
-    else:
-        branch_color = GREEN
-
-    return f'{prefix}{branch_color}\ue0a0 {branch}{R}'
+    if git_dir and common_dir and os.path.realpath(git_dir) != os.path.realpath(common_dir):
+        return '🌲'
+    return None
 
 # Build output
 sections = []
