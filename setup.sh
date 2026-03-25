@@ -109,6 +109,14 @@ if [ -f "$HOME/.claude/settings.local.json" ] && [ ! -L "$HOME/.claude/settings.
 fi
 
 ln -sf "${DOTFILES_DIR}/.claude-settings.local.json" "$HOME/.claude/settings.local.json"
+
+if [ -f "${DOTFILES_DIR}/.claude/statusline.py" ]; then
+    if [ -f "$HOME/.claude/statusline.py" ] && [ ! -L "$HOME/.claude/statusline.py" ]; then
+        echo "既存の statusline.py をバックアップします: $BACKUP_DIR/.claude-statusline.py"
+        mv "$HOME/.claude/statusline.py" "$BACKUP_DIR/.claude-statusline.py"
+    fi
+    ln -sf "${DOTFILES_DIR}/.claude/statusline.py" "$HOME/.claude/statusline.py"
+fi
 echo "✅ Claude Code設定を適用しました"
 
 # 7. テンプレートファイルから個人設定を作成
