@@ -8,14 +8,7 @@ set -e
 echo "🚀 Claude Codeをインストールします..."
 echo ""
 
-# 1. Homebrew の確認
-if ! command -v brew &> /dev/null; then
-    echo "❌ エラー: Homebrewがインストールされていません"
-    echo "README.mdの手順に従って、Homebrewをインストールしてください"
-    exit 1
-fi
-
-# 2. Claude Code のインストール
+# 1. Claude Code のインストール
 echo ""
 echo "📦 Claude Code をインストール中..."
 if ! command -v claude &> /dev/null; then
@@ -25,7 +18,7 @@ else
     echo "✅ Claude Code は既にインストールされています"
 fi
 
-# 3. Claude Code 設定の適用
+# 2. Claude Code 設定の適用
 echo ""
 echo "🤖 Claude Code の設定を適用中..."
 DOTFILES_DIR="$HOME/dotfiles"

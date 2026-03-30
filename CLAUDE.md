@@ -23,7 +23,7 @@
 
 ## 🎯 セットアップ手順
 
-**前提**: Homebrew、Claude Codeがインストール済み
+**前提**: Claude Codeがインストール済み（`bootstrap-minimal.sh`実行済み）
 
 ### 1. setup.shの実行
 

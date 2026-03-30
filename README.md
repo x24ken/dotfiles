@@ -6,19 +6,11 @@
 
 ### フェーズ1: 基本ツールのインストール
 
-ターミナル.appで以下を順番に実行（iTerm2はセットアップ後に使えるようになります）：
+ターミナル.appで以下を実行（iTerm2はセットアップ後に使えるようになります）：
 
 ```bash
-# Homebrew のインストール
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
-eval "$(/opt/homebrew/bin/brew shellenv)"
-
-# リポジトリのクローン
 git clone https://github.com/x24ken/dotfiles.git ~/dotfiles
 cd ~/dotfiles
-
-# Claude Codeのインストール
 ./bootstrap-minimal.sh
 ```
 
