@@ -104,6 +104,7 @@ echo "🤖 Claude Code設定を適用中..."
 mkdir -p "$HOME/.claude"
 
 if [ -f "$HOME/.claude/settings.json" ] && [ ! -L "$HOME/.claude/settings.json" ]; then
+    mkdir -p "$BACKUP_DIR/.claude"
     echo "既存の Claude Code設定をバックアップします: $BACKUP_DIR/.claude/settings.json"
     mv "$HOME/.claude/settings.json" "$BACKUP_DIR/.claude/settings.json"
 fi
