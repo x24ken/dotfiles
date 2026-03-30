@@ -72,6 +72,7 @@ alias pip="pip3"
 # Claude Code
 alias cc='claude'
 alias ccr='claude --resume'
+alias ccw='claude --worktree'
 
 
 # ============================================================
