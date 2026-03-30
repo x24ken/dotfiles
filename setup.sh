@@ -104,11 +104,11 @@ echo "🤖 Claude Code設定を適用中..."
 mkdir -p "$HOME/.claude"
 
 if [ -f "$HOME/.claude/settings.json" ] && [ ! -L "$HOME/.claude/settings.json" ]; then
-    echo "既存の Claude Code設定をバックアップします: $BACKUP_DIR/.claude-settings.json"
-    mv "$HOME/.claude/settings.json" "$BACKUP_DIR/.claude-settings.json"
+    echo "既存の Claude Code設定をバックアップします: $BACKUP_DIR/.claude/settings.json"
+    mv "$HOME/.claude/settings.json" "$BACKUP_DIR/.claude/settings.json"
 fi
 
-ln -sf "${DOTFILES_DIR}/.claude-settings.json" "$HOME/.claude/settings.json"
+ln -sf "${DOTFILES_DIR}/.claude/settings.json" "$HOME/.claude/settings.json"
 
 if [ -f "${DOTFILES_DIR}/.claude/statusline.py" ]; then
     if [ -f "$HOME/.claude/statusline.py" ] && [ ! -L "$HOME/.claude/statusline.py" ]; then

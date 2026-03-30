@@ -119,7 +119,7 @@ code    # cursor
 ├── .gitconfig                    # Git設定
 ├── .gitconfig.local.template     # Git個人設定テンプレート
 ├── .env.template                 # 環境変数テンプレート
-├── .claude-settings.json         # Claude Code設定
+├── .claude/settings.json         # Claude Code設定
 ├── CLAUDE.md                     # Claude Code向け指示
 ├── SETUP_GUIDE.md                # セットアップ手順書
 ├── PACKAGES.md                   # パッケージ詳細

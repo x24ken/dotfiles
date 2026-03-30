@@ -191,7 +191,7 @@ exec zsh
 - [ ] `~/.zshrc` が `~/dotfiles/.zshrc` へのシンボリックリンクになっている
 - [ ] `~/.gitconfig` が `~/dotfiles/.gitconfig` へのシンボリックリンクになっている
 - [ ] `~/.gitconfig.local` が存在し、ユーザー情報が設定されている
-- [ ] `~/.claude/settings.json` が `~/dotfiles/.claude-settings.json` へのシンボリックリンクになっている
+- [ ] `~/.claude/settings.json` が `~/dotfiles/.claude/settings.json` へのシンボリックリンクになっている
 - [ ] `~/.env` が存在する（空でもOK）
 - [ ] oh-my-zshが動作している
 - [ ] NVMが動作している
