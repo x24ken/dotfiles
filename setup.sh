@@ -128,21 +128,35 @@ else
     echo "⚠️  hooks/pre-commit が見つかりません"
 fi
 
-# 7. テンプレートファイルから個人設定を作成
+# 7. 個人設定ファイルの作成
 echo "⚙️  個人設定ファイルの確認中..."
 
 if [ ! -f "$HOME/.gitconfig.local" ]; then
-    echo "⚠️  ~/.gitconfig.local が見つかりません"
-    echo "テンプレートからコピーして、あなたの情報を入力してください："
-    echo "  cp ${DOTFILES_DIR}/.gitconfig.local.template ~/.gitconfig.local"
-    echo "  nano ~/.gitconfig.local"
+    echo ""
+    echo "📝 Git の個人設定を作成します"
+    read -p "名前（Git commitに表示されます）: " GIT_NAME
+    read -p "メールアドレス（Git commitに表示されます）: " GIT_EMAIL
+
+    if [ -n "$GIT_NAME" ] && [ -n "$GIT_EMAIL" ]; then
+        cat > "$HOME/.gitconfig.local" << GITEOF
+[user]
+	name = ${GIT_NAME}
+	email = ${GIT_EMAIL}
+GITEOF
+        echo "✅ ~/.gitconfig.local を作成しました"
+    else
+        echo "⚠️  名前またはメールアドレスが空です。スキップします"
+        echo "後で作成する場合: cp ${DOTFILES_DIR}/.gitconfig.local.template ~/.gitconfig.local"
+    fi
+else
+    echo "✅ ~/.gitconfig.local は既に存在します"
 fi
 
 if [ ! -f "$HOME/.env" ]; then
-    echo "⚠️  ~/.env が見つかりません"
-    echo "テンプレートからコピーして、必要に応じて編集してください："
-    echo "  cp ${DOTFILES_DIR}/.env.template ~/.env"
-    echo "  nano ~/.env"
+    cp "${DOTFILES_DIR}/.env.template" "$HOME/.env"
+    echo "✅ ~/.env を作成しました（必要に応じて編集してください）"
+else
+    echo "✅ ~/.env は既に存在します"
 fi
 
 # 8. NVMのインストール（Node.jsバージョン管理）
@@ -172,11 +186,6 @@ fi
 echo ""
 echo "✅ セットアップ完了！"
 echo ""
-echo "📝 次のステップ："
-echo "  1. 個人設定ファイルを編集してください："
-echo "     - ~/.gitconfig.local (名前とメールアドレス)"
-echo "     - ~/.env (秘密情報)"
-echo ""
-echo "  2. シェルを再起動してください："
+echo "📝 シェルを再起動してください："
 echo "     exec zsh"
 echo ""
