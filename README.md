@@ -125,6 +125,21 @@ exec zsh
 
 ---
 
+## 🎛️ オプション設定
+
+### iTerm2 ホットキーウィンドウ
+
+ショートカットキーで上からターミナルがスライドして出てくる設定。
+
+```bash
+# Dynamic Profilesとしてインストール
+cp ~/dotfiles/iterm2/hotkey-window.json ~/Library/Application\ Support/iTerm2/DynamicProfiles/
+```
+
+インストール後、iTerm2の Settings > Keys > Hotkey でホットキーを割り当ててください。
+
+---
+
 ## 📁 ファイル構成
 
 ```

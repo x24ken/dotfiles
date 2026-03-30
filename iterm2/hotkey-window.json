@@ -1,0 +1,58 @@
+{
+  "Profiles": [
+    {
+      "Name": "Hotkey Window",
+      "Guid": "84DA39BC-A803-418D-970E-7F55F732671A",
+      "Has Hotkey": true,
+      "HotKey Activated By Modifier": true,
+      "HotKey Modifier Activation": 0,
+      "HotKey Modifier Flags": 0,
+      "HotKey Key Code": 0,
+      "HotKey Characters": "",
+      "HotKey Characters Ignoring Modifiers": "",
+      "HotKey Alternate Shortcuts": [],
+      "HotKey Window Animates": true,
+      "HotKey Window AutoHides": false,
+      "HotKey Window Floats": true,
+      "HotKey Window Reopens On Activation": false,
+      "HotKey Window Dock Click Action": 1,
+      "Window Type": 2,
+      "Rows": 25,
+      "Columns": 80,
+      "Normal Font": "NotoMonoForPowerline 24",
+      "ASCII Anti Aliased": true,
+      "Non-ASCII Anti Aliased": true,
+      "Use Non-ASCII Font": false,
+      "Transparency": 0.10306919642857143,
+      "Initial Use Transparency": true,
+      "Blur": true,
+      "Blur Radius": 2.008914620535713,
+      "Background Color": {
+        "Alpha Component": 1.0,
+        "Blue Component": 0.10196078431372549,
+        "Color Space": "P3",
+        "Green Component": 0.08235294117647059,
+        "Red Component": 0.07058823529411765
+      },
+      "Foreground Color": {
+        "Blue Component": 0.7333333492279053,
+        "Green Component": 0.7333333492279053,
+        "Red Component": 0.7333333492279053
+      },
+      "Cursor Color": {
+        "Alpha Component": 1.0,
+        "Blue Component": 0.7803921568627451,
+        "Color Space": "P3",
+        "Green Component": 0.7803921568627451,
+        "Red Component": 0.7803921568627451
+      },
+      "Terminal Type": "xterm-256color",
+      "Scrollback Lines": 1000,
+      "Unlimited Scrollback": false,
+      "Disable Window Resizing": true,
+      "Prompt Before Closing 2": false,
+      "Screen": -1,
+      "Space": -1
+    }
+  ]
+}
