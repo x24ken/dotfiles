@@ -81,15 +81,13 @@ cp .gitconfig.local.template ~/.gitconfig.local
 cp .env.template ~/.env
 ```
 
-ユーザーに以下を確認：
-- **GitHub Personal Access Token**: 必要かどうか、必要な場合は取得方法を案内
-
-`~/.env` を編集：
+必要に応じて秘密情報を記載：
 ```bash
-export GITHUB_PERSONAL_ACCESS_TOKEN="ユーザーが入力したトークン"
+# 例:
+# export SOME_API_KEY="your_key_here"
 ```
 
-**トークンが不要な場合**:
+**特に設定が不要な場合**:
 - `.env`ファイルは空のまま、または削除してもOK
 
 ---
@@ -215,8 +213,7 @@ exec zsh
 - 開発ツール（gh, jq, tree, awscli等）
 - Node.js環境（NVM）
 - Python環境（pyenv）
-- MongoDB
-- VS Code + 拡張機能
+- Claude Code、Docker
 
 設定ファイル：
 - ~/.zshrc → ~/dotfiles/.zshrc
@@ -241,21 +238,18 @@ exec zsh
 
 セットアップ完了後、ユーザーに以下を提案できます：
 
-1. **VS Code設定の同期**
-   - Settings Syncを有効化
-
-2. **SSH鍵の生成**（必要な場合）
+1. **SSH鍵の生成**（必要な場合）
    ```bash
    ssh-keygen -t ed25519 -C "user@email.com"
    ```
 
-3. **Node.jsのインストール**（必要な場合）
+2. **Node.jsのインストール**（必要な場合）
    ```bash
    nvm install --lts
    nvm use --lts
    ```
 
-4. **Pythonのインストール**（必要な場合）
+3. **Pythonのインストール**（必要な場合）
    ```bash
    pyenv install 3.12.0
    pyenv global 3.12.0
@@ -265,6 +259,6 @@ exec zsh
 
 ## 📚 参考情報
 
-- **dotfilesの更新方法**: [README.md](./README.md) の「既存環境の更新」セクション
 - **パッケージ詳細**: [PACKAGES.md](./PACKAGES.md)
+- **macOS設定詳細**: [MACOS_SETTINGS.md](./MACOS_SETTINGS.md)
 - **トラブルシューティング**: [README.md](./README.md) の「トラブルシューティング」セクション

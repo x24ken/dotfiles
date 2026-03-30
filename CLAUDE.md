@@ -32,7 +32,7 @@
   - 実行前にユーザーに確認を求める
 
 ### 設定ファイル
-- **Brewfile**: Homebrewパッケージリスト（約40パッケージ + VS Code拡張機能）
+- **Brewfile**: Homebrewパッケージリスト
 - **.zshrc**: zsh設定（oh-my-zsh + プラグイン）
 - **.gitconfig**: Git設定（個人情報は.gitconfig.localに分離）
 ### テンプレートファイル
@@ -127,7 +127,6 @@
 
 ### 1. NVMについて
 - Node.jsのバージョン管理は**NVM**を使用
-- Brewfileには`node`パッケージがあるが、これは最新版の固定インストール
 - プロジェクトごとのバージョン管理はNVMで行う
 
 ### 2. Python環境
