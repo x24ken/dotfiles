@@ -43,7 +43,7 @@ cd dotfiles
 4. dotfilesのシンボリックリンク作成（.zshrc, .gitconfig）
 5. **Claude Code設定の適用**
    - パーミッション設定（ほぼすべてのコマンドを自動許可）
-   - `~/.claude/settings.local.json` へのシンボリックリンク作成
+   - `~/.claude/settings.json` へのシンボリックリンク作成
 6. NVMのインストール
 8. macOSシステム設定の適用（オプション）
    - Dock、Finder、キーボード、トラックパッドなど ← 確認後に適用
@@ -192,7 +192,7 @@ exec zsh
 - [ ] `~/.zshrc` が `~/dotfiles/.zshrc` へのシンボリックリンクになっている
 - [ ] `~/.gitconfig` が `~/dotfiles/.gitconfig` へのシンボリックリンクになっている
 - [ ] `~/.gitconfig.local` が存在し、ユーザー情報が設定されている
-- [ ] `~/.claude/settings.local.json` が `~/dotfiles/.claude-settings.local.json` へのシンボリックリンクになっている
+- [ ] `~/.claude/settings.json` が `~/dotfiles/.claude-settings.json` へのシンボリックリンクになっている
 - [ ] `~/.env` が存在する（空でもOK）
 - [ ] oh-my-zshが動作している
 - [ ] NVMが動作している

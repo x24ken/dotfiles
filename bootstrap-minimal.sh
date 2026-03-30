@@ -31,12 +31,12 @@ echo "🤖 Claude Code の設定を適用中..."
 DOTFILES_DIR="$HOME/dotfiles"
 mkdir -p "$HOME/.claude"
 
-if [ -f "${DOTFILES_DIR}/.claude-settings.local.json" ]; then
-    ln -sf "${DOTFILES_DIR}/.claude-settings.local.json" "$HOME/.claude/settings.local.json"
+if [ -f "${DOTFILES_DIR}/.claude-settings.json" ]; then
+    ln -sf "${DOTFILES_DIR}/.claude-settings.json" "$HOME/.claude/settings.json"
     echo "✅ Claude Code の設定を適用しました"
     echo "   （すべてのコマンドが自動許可されます。危険なコマンドのみ確認が必要です）"
 else
-    echo "⚠️  設定ファイルが見つかりません: ${DOTFILES_DIR}/.claude-settings.local.json"
+    echo "⚠️  設定ファイルが見つかりません: ${DOTFILES_DIR}/.claude-settings.json"
 fi
 
 # 完了メッセージ

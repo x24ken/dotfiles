@@ -1,0 +1,56 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(*)",
+      "Glob(*)",
+      "Grep(*)",
+      "Edit(*)",
+      "Write(*)",
+      "NotebookEdit(*)",
+      "Bash(*)",
+      "Task(*)",
+      "WebFetch(*)",
+      "WebSearch(*)"
+    ],
+    "deny": [
+      "Bash(sudo rm -rf /*)",
+      "Bash(sudo rm -rf /etc*)",
+      "Bash(sudo rm -rf /var*)",
+      "Bash(sudo rm -rf /usr*)",
+      "Bash(sudo rm -rf /bin*)",
+      "Bash(sudo rm -rf /sbin*)",
+      "Bash(mkfs*)",
+      "Bash(dd if=/dev/zero*)",
+      "Bash(dd if=/dev/random*)",
+      "Bash(chmod -R 777 /*)",
+      "Bash(chown -R * /*)"
+    ],
+    "ask": [
+      "Bash(sudo *)",
+      "Bash(git push --force*)",
+      "Bash(git push * --force*)",
+      "Bash(git reset --hard*)",
+      "Bash(git clean -fd*)",
+      "Bash(*| sh)",
+      "Bash(*| bash)",
+      "Bash(curl * | *)",
+      "Bash(wget * | *)",
+      "Bash(npm publish*)",
+      "Bash(docker rm*)",
+      "Bash(docker rmi*)",
+      "Bash(docker system prune*)",
+      "Bash(rm -rf ~*)",
+      "Bash(rm -rf /*)"
+    ]
+  },
+  "enableAllProjectMcpServers": true,
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/statusline.py"
+  },
+"alwaysThinkingEnabled": true,
+  "skipDangerousModePermissionPrompt": true,
+  "autoMemoryEnabled": true,
+  "autoDreamEnabled": true,
+  "autoUpdatesChannel": "latest"
+}
