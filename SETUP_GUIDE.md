@@ -7,8 +7,7 @@
 ## 📋 前提条件
 
 以下がインストール済みであることを確認してください：
-- ✅ Command Line Tools
-- ✅ Homebrew
+- ✅ Homebrew（Command Line Toolsも自動インストールされる）
 - ✅ GitHub CLI（認証済み）
 - ✅ Claude Code
 

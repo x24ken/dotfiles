@@ -6,16 +6,11 @@
 
 ### フェーズ1: 基本ツールのインストール
 
-ターミナルで以下のコマンドを順番に実行：
+ターミナル.appで以下を順番に実行（iTerm2はセットアップ後に使えるようになります）：
 
 ```bash
-# Command Line Tools のインストール
-xcode-select --install
-
 # Homebrew のインストール
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-# Apple Silicon の場合のみ実行
 echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
@@ -63,7 +58,7 @@ exec zsh
 
 `setup.sh` が以下を自動実行します：
 
-1. **Homebrewパッケージ** インストール（awscli, gh, jq, pyenv, tree, yt-dlp, claude-code, docker）
+1. **Homebrewパッケージ** インストール（awscli, gh, jq, pyenv, tree, yt-dlp, claude-code, docker, iterm2）
 2. **oh-my-zsh** + プラグイン インストール（syntax-highlighting, autosuggestions, you-should-use）
 3. **dotfiles** のシンボリックリンク作成（.zshrc, .gitconfig）
 4. **Claude Code設定** 適用
