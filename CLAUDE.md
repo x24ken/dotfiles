@@ -23,7 +23,7 @@
 
 ## 🎯 セットアップ手順
 
-**前提**: Homebrew、GitHub CLI（認証済み）、Claude Codeがインストール済み
+**前提**: Homebrew、Claude Codeがインストール済み
 
 ### 1. setup.shの実行
 
@@ -65,7 +65,7 @@ exec zsh
 echo $ZSH_THEME    # agnoster
 alias cc            # claude
 nvm --version       # NVMの確認
-gh --version        # GitHub CLIの確認
+gh --version        # GitHub CLI（Brewfileでインストール済み）
 ```
 
 ---

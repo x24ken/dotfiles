@@ -14,14 +14,9 @@
 echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-# GitHub CLI のインストールと認証
-brew install gh
-gh auth login
-
 # リポジトリのクローン
-cd ~
-gh repo clone x24ken/dotfiles
-cd dotfiles
+git clone https://github.com/x24ken/dotfiles.git ~/dotfiles
+cd ~/dotfiles
 
 # Claude Codeのインストール
 ./bootstrap-minimal.sh
