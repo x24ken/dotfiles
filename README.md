@@ -136,7 +136,15 @@ exec zsh
 cp ~/dotfiles/iterm2/hotkey-window.json ~/Library/Application\ Support/iTerm2/DynamicProfiles/
 ```
 
-インストール後、iTerm2の Settings > Keys > Hotkey でホットキーを割り当ててください。
+インストール後、iTerm2で以下を手動設定：
+
+1. Settings > Profiles > Hotkey Window > Keys > Hotkey Window で Configure Hotkey Window
+2. 以下の設定にする：
+   - **Double-tap key**: Control にチェック
+   - **Pin hotkey window**: ON（フォーカスを失っても閉じない）
+   - **Animate showing and hiding**: ON
+   - **Floating window**: ON
+   - **On Dock icon click**: Show this Hotkey Window
 
 ---
 
