@@ -9,8 +9,6 @@
 	ds = diff --staged
 [push]
 	autoSetupRemote = true
-[http]
-	postBuffer = 524288000
 
 # ローカル設定（名前、メールアドレスなど）を読み込む
 # ~/.gitconfig.local に個人情報を記載してください

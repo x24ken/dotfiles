@@ -54,47 +54,73 @@ exec zsh
 
 ---
 
-## 📋 何が実行されるか
+## 📋 セットアップされるもの一覧
 
-`setup.sh` が以下を自動実行します：
+### パッケージ
 
-1. **Homebrewパッケージ** インストール（awscli, gh, jq, pyenv, tree, yt-dlp, claude-code, docker, iterm2）
-2. **oh-my-zsh** + プラグイン インストール（syntax-highlighting, autosuggestions, you-should-use）
-3. **dotfiles** のシンボリックリンク作成（.zshrc, .gitconfig）
-4. **Claude Code設定** 適用
-5. **NVM** インストール（Node.jsバージョン管理）
+| パッケージ | 種類 | 用途 |
+|---|---|---|
+| gh | CLI | GitHub操作 |
+| tree | CLI | ディレクトリ表示 |
+| claude-code | App | AI開発支援 |
+| iterm2 | App | ターミナル |
 
----
+### シェル環境
 
-## 🎯 便利なエイリアス
+| 項目 | 設定 |
+|---|---|
+| oh-my-zsh | テーマ: agnoster |
+| zshプラグイン | syntax-highlighting, autosuggestions, you-should-use |
+| Powerlineフォント | agnosterテーマ用 |
+| NVM | Node.jsバージョン管理 |
+| デフォルトエディタ | cursor --wait |
 
-### Claude Code
+### エイリアス
 
-```bash
-cc              # claude
-ccr             # claude --resume
-ccw             # claude --worktree
-```
+| エイリアス | 展開先 | |
+|---|---|---|
+| cc | claude | |
+| ccr | claude --resume | |
+| ccw | claude --worktree | |
+| gw | git worktree | |
+| git s / l / cm / a / p / ds | status / log --oneline / commit -m / add / push / diff --staged | |
+| python / pip | python3 / pip3 | |
+| code | cursor | |
 
-### Git
+### Git設定
 
-```bash
-git s   # status
-git l   # log --oneline
-git cm  # commit -m
-git a   # add
-git p   # push
-git ds  # diff --staged
-gw      # git worktree
-```
+| 項目 | 設定 |
+|---|---|
+| core.editor | cursor --wait |
+| push.autoSetupRemote | true（新ブランチのpushで--set-upstream不要） |
 
-### その他
+### Claude Code設定
 
-```bash
-python  # python3
-pip     # pip3
-code    # cursor
-```
+| 項目 | 設定 |
+|---|---|
+| パーミッション | ほぼ全許可（破壊コマンドはdeny/ask） |
+| statusline | ctx/5h/7d使用率 + worktree検出 |
+| alwaysThinking | ON |
+| autoMemory | ON |
+
+### macOS設定（オプション）
+
+| カテゴリ | 設定 |
+|---|---|
+| Dock | サイズ53、下配置、自動非表示、最近のアプリ非表示 |
+| Finder | 隠しファイル表示、拡張子表示、パスバー、ステータスバー、リスト表示、ホームフォルダ |
+| キーボード | リピート最速、開始時間最短 |
+| トラックパッド | タップでクリック、ナチュラルスクロール |
+| スクリーンショット | クリップボードのみ、影なし |
+| UI | ダークモード、アニメーション高速化、スクロールバーはスクロール時のみ |
+| テキスト入力 | スペルチェックOFF、スマート引用符OFF、自動大文字化OFF、ライブ変換OFF |
+
+### セキュリティ
+
+| 項目 | 設定 |
+|---|---|
+| pre-commit hook | 秘密情報（APIキー、トークン、メール等）の混入を自動検出・ブロック |
+| .gitignore | .env, .gitconfig.local, .zshrc.local を除外 |
 
 ---
 

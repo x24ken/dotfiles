@@ -137,7 +137,7 @@ defaults write com.apple.CrashReporter DialogType -string "none"
 defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark"
 
 # スクロールバーを常に表示
-defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
+defaults write NSGlobalDomain AppleShowScrollBars -string "WhenScrolling"
 
 # メニューバーの時計表示形式（曜日 月 日 時:分）
 defaults write com.apple.menuextra.clock DateFormat -string "EEE MMM d  H:mm"
