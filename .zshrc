@@ -53,10 +53,6 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 # [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"  # コメントアウト: AVX警告の原因
 
-# Java (必要に応じてコメント解除)
-# export JAVA_HOME=$(brew --prefix openjdk@17)
-# export PATH="$JAVA_HOME/bin:$PATH"
-
 
 # ============================================================
 # エイリアス

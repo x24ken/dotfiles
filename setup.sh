@@ -131,7 +131,7 @@ fi
 
 if [ ! -f "$HOME/.env" ]; then
     echo "⚠️  ~/.env が見つかりません"
-    echo "テンプレートからコピーして、トークンを入力してください："
+    echo "テンプレートからコピーして、必要に応じて編集してください："
     echo "  cp ${DOTFILES_DIR}/.env.template ~/.env"
     echo "  nano ~/.env"
 fi
@@ -166,7 +166,7 @@ echo ""
 echo "📝 次のステップ："
 echo "  1. 個人設定ファイルを編集してください："
 echo "     - ~/.gitconfig.local (名前とメールアドレス)"
-echo "     - ~/.env (GitHubトークンなど)"
+echo "     - ~/.env (秘密情報)"
 echo ""
 echo "  2. シェルを再起動してください："
 echo "     exec zsh"
