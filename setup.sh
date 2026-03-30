@@ -119,6 +119,15 @@ if [ -f "${DOTFILES_DIR}/.claude/statusline.py" ]; then
 fi
 echo "✅ Claude Code設定を適用しました"
 
+# pre-commit hookのインストール
+echo "🔒 pre-commit hook をインストール中..."
+if [ -f "${DOTFILES_DIR}/hooks/pre-commit" ]; then
+    ln -sf "${DOTFILES_DIR}/hooks/pre-commit" "${DOTFILES_DIR}/.git/hooks/pre-commit"
+    echo "✅ pre-commit hook をインストールしました（秘密情報の混入防止）"
+else
+    echo "⚠️  hooks/pre-commit が見つかりません"
+fi
+
 # 7. テンプレートファイルから個人設定を作成
 echo "⚙️  個人設定ファイルの確認中..."
 

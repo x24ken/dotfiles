@@ -1,0 +1,100 @@
+#!/bin/bash
+
+# pre-commit hook: 秘密情報の混入防止
+# ステージされたファイルの追加行をスキャンし、秘密情報パターンを検出してコミットをブロック
+
+STAGED_FILES=$(git diff --cached --name-only --diff-filter=d)
+
+if [ -z "$STAGED_FILES" ]; then
+    exit 0
+fi
+
+FOUND_SECRETS=0
+
+# スキャン対象外のファイル
+SKIP_FILES="hooks/pre-commit"
+
+# 秘密情報パターン定義（ラベル:パターン）
+PATTERNS=(
+    "AWS Access Key:AKIA[0-9A-Z]{16}"
+    "GitHub Token:gh[pos]_[0-9a-zA-Z]{36}"
+    "GitHub Fine-grained PAT:github_pat_[0-9a-zA-Z_]{22,}"
+    "OpenAI/API Key:sk-[0-9a-zA-Z]{20,}"
+    "Private Key:BEGIN .* PRIVATE KEY"
+    "Password in config:password\s*=\s*[\"'][^\"']+[\"']"
+    "API Key in config:api[_-]?key\s*=\s*[\"'][^\"']+[\"']"
+    "Token in config:token\s*=\s*[\"'][^\"']+[\"']"
+    "Secret in config:secret\s*=\s*[\"'][^\"']+[\"']"
+    "Email address:[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+)
+
+# プレースホルダー（許可するパターン）
+ALLOWED_PATTERNS=(
+    "your_.*_here"
+    "Your Name"
+    "your\.email@example\.com"
+    "@example\.(com|org|net)"
+    "user@email\.com"
+    "SOME_API_KEY"
+)
+
+is_allowed() {
+    local line="$1"
+    for pattern in "${ALLOWED_PATTERNS[@]}"; do
+        if echo "$line" | grep -qEi "$pattern"; then
+            return 0
+        fi
+    done
+    return 1
+}
+
+for file in $STAGED_FILES; do
+    # スキップ対象のファイルを除外
+    for skip in $SKIP_FILES; do
+        if [ "$file" = "$skip" ]; then
+            continue 2
+        fi
+    done
+
+    # ステージされた差分の追加行のみ取得
+    DIFF_LINES=$(git diff --cached -U0 -- "$file" | grep "^+" | grep -v "^+++" || true)
+
+    if [ -z "$DIFF_LINES" ]; then
+        continue
+    fi
+
+    for entry in "${PATTERNS[@]}"; do
+        label="${entry%%:*}"
+        pattern="${entry#*:}"
+
+        MATCHES=$(echo "$DIFF_LINES" | grep -nEi "$pattern" || true)
+
+        if [ -n "$MATCHES" ]; then
+            while IFS= read -r match; do
+                # プレースホルダーなら許可
+                if is_allowed "$match"; then
+                    continue
+                fi
+
+                if [ $FOUND_SECRETS -eq 0 ]; then
+                    echo ""
+                    echo "🚨 秘密情報が検出されました！コミットをブロックします。"
+                    echo ""
+                fi
+                FOUND_SECRETS=1
+                echo "  [$label] $file"
+                echo "    $match"
+                echo ""
+            done <<< "$MATCHES"
+        fi
+    done
+done
+
+if [ $FOUND_SECRETS -ne 0 ]; then
+    echo "秘密情報を削除してから再度コミットしてください。"
+    echo "正当な理由がある場合: git commit --no-verify"
+    echo ""
+    exit 1
+fi
+
+exit 0
