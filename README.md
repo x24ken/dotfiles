@@ -80,6 +80,7 @@ exec zsh
 | エイリアス | 展開先 | |
 |---|---|---|
 | cc | claude | |
+| ccc | claude --continue | |
 | ccr | claude --resume | |
 | ccw | claude --worktree | |
 | gw | git worktree | |
