@@ -9,6 +9,7 @@
 ターミナル.appで以下を実行（iTerm2はセットアップ後に使えるようになります）：
 
 ```bash
+# 初回はCommand Line Toolsのインストールが求められます（自動）
 git clone https://github.com/x24ken/dotfiles.git ~/dotfiles
 cd ~/dotfiles
 ./bootstrap-minimal.sh
@@ -32,8 +33,6 @@ Claude Codeに以下のように伝える：
 ```bash
 cd ~/dotfiles
 ./setup.sh
-nano ~/.gitconfig.local
-nano ~/.env
 exec zsh
 ```
 
