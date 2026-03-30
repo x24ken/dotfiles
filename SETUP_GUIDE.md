@@ -39,12 +39,12 @@ cd dotfiles
 1. Homebrewパッケージの一括インストール（Brewfile）
 2. oh-my-zshのインストール
 3. zshプラグインのインストール
-4. dotfilesのシンボリックリンク作成（.zshrc, .gitconfig）
-5. **Claude Code設定の適用**
-   - パーミッション設定（ほぼすべてのコマンドを自動許可）
-   - `~/.claude/settings.json` へのシンボリックリンク作成
-6. NVMのインストール
-8. macOSシステム設定の適用（オプション）
+4. Powerlineフォントのインストール
+5. dotfilesのシンボリックリンク作成（.zshrc, .gitconfig）
+6. Claude Code設定の適用（パーミッション設定、statusline）
+7. pre-commit hookのインストール（秘密情報の混入防止）
+8. NVMのインストール
+9. macOSシステム設定の適用（オプション）
    - Dock、Finder、キーボード、トラックパッドなど ← 確認後に適用
 
 **エラーハンドリング**:
@@ -212,7 +212,7 @@ exec zsh
 - 開発ツール（gh, jq, tree, awscli等）
 - Node.js環境（NVM）
 - Python環境（pyenv）
-- Claude Code、Docker
+- Claude Code、Docker、iTerm2
 
 設定ファイル：
 - ~/.zshrc → ~/dotfiles/.zshrc

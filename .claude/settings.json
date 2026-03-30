@@ -48,7 +48,7 @@
     "type": "command",
     "command": "~/.claude/statusline.py"
   },
-"alwaysThinkingEnabled": true,
+  "alwaysThinkingEnabled": true,
   "skipDangerousModePermissionPrompt": true,
   "autoMemoryEnabled": true,
   "autoDreamEnabled": true,

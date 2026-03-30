@@ -28,15 +28,14 @@ prompt_context() { }
 # ============================================================
 
 export PATH="/opt/homebrew/bin:$PATH"
-export PATH="$HOME/.npm-global/bin:$PATH"
 
 
 # ============================================================
 # エディタ設定
 # ============================================================
 
-export EDITOR="code --wait"
-export VISUAL="code --wait"
+export EDITOR="cursor --wait"
+export VISUAL="cursor --wait"
 
 
 # ============================================================
@@ -48,10 +47,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
-# Bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-# [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"  # コメントアウト: AVX警告の原因
 
 
 # ============================================================
@@ -70,6 +65,9 @@ alias cc='claude'
 alias ccr='claude --resume'
 alias ccw='claude --worktree'
 
+# Cursor
+alias code="cursor"
+
 
 # ============================================================
 # 外部ファイルの読み込み
@@ -83,6 +81,3 @@ alias ccw='claude --worktree'
 
 # ローカル設定（マシン固有のカスタマイズ）
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
-
-# Use Cursor instead of VS Code
-alias code="cursor"

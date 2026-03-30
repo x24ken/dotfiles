@@ -115,11 +115,13 @@ code    # cursor
 ├── setup.sh                      # メインセットアップスクリプト
 ├── macos-defaults.sh             # macOSシステム設定
 ├── Brewfile                      # Homebrewパッケージリスト
+├── hooks/pre-commit              # 秘密情報混入防止hook
 ├── .zshrc                        # zsh設定
 ├── .gitconfig                    # Git設定
 ├── .gitconfig.local.template     # Git個人設定テンプレート
 ├── .env.template                 # 環境変数テンプレート
 ├── .claude/settings.json         # Claude Code設定
+├── .claude/statusline.py         # Claude Code statusline
 ├── CLAUDE.md                     # Claude Code向け指示
 ├── SETUP_GUIDE.md                # セットアップ手順書
 ├── PACKAGES.md                   # パッケージ詳細
