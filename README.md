@@ -36,7 +36,7 @@ claude --dangerously-skip-permissions
 Claude Codeに以下のように伝える：
 
 ```
-SETUP_GUIDE.md に従ってセットアップして！
+セットアップして！
 ```
 
 <details>
@@ -122,10 +122,7 @@ code    # cursor
 ├── .env.template                 # 環境変数テンプレート
 ├── .claude/settings.json         # Claude Code設定
 ├── .claude/statusline.py         # Claude Code statusline
-├── CLAUDE.md                     # Claude Code向け指示
-├── SETUP_GUIDE.md                # セットアップ手順書
-├── PACKAGES.md                   # パッケージ詳細
-├── MACOS_SETTINGS.md             # macOS設定詳細
+├── CLAUDE.md                     # Claude Code向け指示・セットアップ手順
 └── README.md                     # このファイル
 ```
 
