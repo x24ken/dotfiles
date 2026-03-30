@@ -73,7 +73,7 @@ exec zsh
 | zshプラグイン | syntax-highlighting, autosuggestions, you-should-use |
 | Powerlineフォント | agnosterテーマ用 |
 | NVM | Node.jsバージョン管理 |
-| デフォルトエディタ | cursor --wait |
+| デフォルトエディタ | cursor |
 
 ### エイリアス
 
@@ -91,7 +91,7 @@ exec zsh
 
 | 項目 | 設定 |
 |---|---|
-| core.editor | cursor --wait |
+| core.editor | cursor |
 | push.autoSetupRemote | true（新ブランチのpushで--set-upstream不要） |
 
 ### Claude Code設定
