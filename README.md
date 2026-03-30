@@ -57,8 +57,8 @@ exec zsh
 |---|---|---|
 | gh | CLI | GitHub操作 |
 | tree | CLI | ディレクトリ表示 |
-| claude-code | App | AI開発支援 |
 | iterm2 | App | ターミナル |
+| claude-code | CLI | AI開発支援（curl経由でインストール） |
 
 ### シェル環境
 

@@ -19,7 +19,7 @@ fi
 echo ""
 echo "📦 Claude Code をインストール中..."
 if ! command -v claude &> /dev/null; then
-    brew install --cask claude-code
+    curl -fsSL https://claude.ai/install.sh | bash
     echo "✅ Claude Code のインストールが完了しました"
 else
     echo "✅ Claude Code は既にインストールされています"
