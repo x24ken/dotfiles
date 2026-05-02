@@ -1,17 +1,11 @@
 {
+  "env": {
+    "CLAUDE_CODE_NO_FLICKER": "1",
+    "CLAUDE_CODE_DISABLE_MOUSE": "1",
+    "CLAUDE_AUTOCOMPACT_PCT_OVERRIDE": "40"
+  },
   "permissions": {
-    "allow": [
-      "Read(*)",
-      "Glob(*)",
-      "Grep(*)",
-      "Edit(*)",
-      "Write(*)",
-      "NotebookEdit(*)",
-      "Bash(*)",
-      "Task(*)",
-      "WebFetch(*)",
-      "WebSearch(*)"
-    ],
+    "allow": [],
     "deny": [
       "Bash(sudo rm -rf /*)",
       "Bash(sudo rm -rf /etc*)",
@@ -41,16 +35,34 @@
       "Bash(docker system prune*)",
       "Bash(rm -rf ~*)",
       "Bash(rm -rf /*)"
+    ],
+    "defaultMode": "auto"
+  },
+  "enableAllProjectMcpServers": false,
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/convert-clipboard.sh",
+            "timeout": 5000
+          }
+        ]
+      }
     ]
   },
-  "enableAllProjectMcpServers": true,
   "statusLine": {
     "type": "command",
     "command": "~/.claude/statusline.py"
   },
-  "alwaysThinkingEnabled": true,
-  "skipDangerousModePermissionPrompt": true,
+  "sandbox": {
+    "enabled": false
+  },
+  "autoUpdatesChannel": "latest",
   "autoMemoryEnabled": true,
   "autoDreamEnabled": true,
-  "autoUpdatesChannel": "latest"
+  "autoCompactEnabled": true,
+  "remoteControlAtStartup": false,
+  "skipAutoPermissionPrompt": true
 }
