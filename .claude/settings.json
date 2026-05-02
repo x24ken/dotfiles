@@ -39,19 +39,6 @@
     "defaultMode": "auto"
   },
   "enableAllProjectMcpServers": false,
-  "hooks": {
-    "UserPromptSubmit": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "~/.claude/hooks/convert-clipboard.sh",
-            "timeout": 5000
-          }
-        ]
-      }
-    ]
-  },
   "statusLine": {
     "type": "command",
     "command": "~/.claude/statusline.py"
