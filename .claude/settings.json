@@ -1,9 +1,5 @@
 {
-  "env": {
-    "CLAUDE_AUTOCOMPACT_PCT_OVERRIDE": "40"
-  },
   "permissions": {
-    "allow": [],
     "deny": [
       "Bash(sudo rm -rf /*)",
       "Bash(sudo rm -rf /etc*)",
@@ -17,7 +13,6 @@
       "Bash(chmod -R 777 /*)",
       "Bash(chown -R * /*)"
     ],
-    "ask": [],
     "defaultMode": "auto"
   },
   "enableAllProjectMcpServers": false,
@@ -25,14 +20,7 @@
     "type": "command",
     "command": "~/.claude/statusline.py"
   },
-  "sandbox": {
-    "enabled": false
-  },
   "autoUpdatesChannel": "latest",
-  "autoMemoryEnabled": true,
-  "autoDreamEnabled": true,
-  "autoCompactEnabled": true,
-  "remoteControlAtStartup": false,
   "skipAutoPermissionPrompt": true,
   "tui": "fullscreen"
 }
