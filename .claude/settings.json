@@ -17,23 +17,7 @@
       "Bash(chmod -R 777 /*)",
       "Bash(chown -R * /*)"
     ],
-    "ask": [
-      "Bash(sudo *)",
-      "Bash(git push --force*)",
-      "Bash(git push * --force*)",
-      "Bash(git reset --hard*)",
-      "Bash(git clean -fd*)",
-      "Bash(*| sh)",
-      "Bash(*| bash)",
-      "Bash(curl * | *)",
-      "Bash(wget * | *)",
-      "Bash(npm publish*)",
-      "Bash(docker rm*)",
-      "Bash(docker rmi*)",
-      "Bash(docker system prune*)",
-      "Bash(rm -rf ~*)",
-      "Bash(rm -rf /*)"
-    ],
+    "ask": [],
     "defaultMode": "auto"
   },
   "enableAllProjectMcpServers": false,
