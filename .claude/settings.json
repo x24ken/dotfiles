@@ -33,5 +33,6 @@
   "autoDreamEnabled": true,
   "autoCompactEnabled": true,
   "remoteControlAtStartup": false,
-  "skipAutoPermissionPrompt": true
+  "skipAutoPermissionPrompt": true,
+  "tui": "fullscreen"
 }
