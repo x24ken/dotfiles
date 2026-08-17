@@ -1,6 +1,7 @@
 # dotfiles リポジトリ - Claude Code向け指示
 
 新しいMacで開発環境を自動構築するための公開リポジトリです。
+Claude Code設定は [claude-config](https://github.com/x24ken/claude-config)（`~/.claude` 直接git化）で別管理。
 
 ---
 
@@ -36,10 +37,9 @@
 2. oh-my-zsh + zshプラグインのインストール
 3. Powerlineフォントのインストール
 4. dotfilesのシンボリックリンク作成（.zshrc, .gitconfig）
-5. Claude Code設定の適用（パーミッション設定、statusline）
-6. pre-commit hookのインストール
-7. NVMのインストール
-8. macOSシステム設定の適用（オプション、ユーザー確認後）
+5. pre-commit hookのインストール
+6. NVMのインストール
+7. macOSシステム設定の適用（オプション、ユーザー確認後）
 
 ### 2. 個人設定ファイルの作成
 
@@ -94,7 +94,6 @@ gh --version        # GitHub CLI（Brewfileでインストール済み）
 
 - [ ] `~/.zshrc` → `~/dotfiles/.zshrc` のシンボリックリンク
 - [ ] `~/.gitconfig` → `~/dotfiles/.gitconfig` のシンボリックリンク
-- [ ] `~/.claude/settings.json` → `~/dotfiles/.claude/settings.json` のシンボリックリンク
 - [ ] `~/.gitconfig.local` にユーザー情報が設定されている
 - [ ] oh-my-zsh、NVM、エイリアス（cc, ccr, ccw）が動作している
 

@@ -99,26 +99,9 @@ done
 ln -sf "${DOTFILES_DIR}/.zshrc" "$HOME/.zshrc"
 ln -sf "${DOTFILES_DIR}/.gitconfig" "$HOME/.gitconfig"
 
-# Claude Code設定のシンボリックリンクを作成
-echo "🤖 Claude Code設定を適用中..."
-mkdir -p "$HOME/.claude"
-
-if [ -f "$HOME/.claude/settings.json" ] && [ ! -L "$HOME/.claude/settings.json" ]; then
-    mkdir -p "$BACKUP_DIR/.claude"
-    echo "既存の Claude Code設定をバックアップします: $BACKUP_DIR/.claude/settings.json"
-    mv "$HOME/.claude/settings.json" "$BACKUP_DIR/.claude/settings.json"
-fi
-
-ln -sf "${DOTFILES_DIR}/.claude/settings.json" "$HOME/.claude/settings.json"
-
-if [ -f "${DOTFILES_DIR}/.claude/statusline.py" ]; then
-    if [ -f "$HOME/.claude/statusline.py" ] && [ ! -L "$HOME/.claude/statusline.py" ]; then
-        echo "既存の statusline.py をバックアップします: $BACKUP_DIR/.claude-statusline.py"
-        mv "$HOME/.claude/statusline.py" "$BACKUP_DIR/.claude-statusline.py"
-    fi
-    ln -sf "${DOTFILES_DIR}/.claude/statusline.py" "$HOME/.claude/statusline.py"
-fi
-echo "✅ Claude Code設定を適用しました"
+# Claude Code設定は別リポジトリで管理
+echo "🤖 Claude Code設定は claude-config リポジトリで管理されています"
+echo "   未取得なら: git clone https://github.com/x24ken/claude-config.git ~/.claude"
 
 # pre-commit hookのインストール
 echo "🔒 pre-commit hook をインストール中..."
