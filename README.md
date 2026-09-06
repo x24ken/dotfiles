@@ -143,8 +143,7 @@ cp ~/dotfiles/iterm2/hotkey-window.json ~/Library/Application\ Support/iTerm2/Dy
 ├── .gitconfig                    # Git設定
 ├── .gitconfig.local.template     # Git個人設定テンプレート
 ├── .env.template                 # 環境変数テンプレート
-├── .claude/settings.json         # Claude Code設定
-├── .claude/statusline.py         # Claude Code statusline
+├── iterm2/hotkey-window.json     # iTerm2ホットキーウィンドウ設定
 ├── CLAUDE.md                     # Claude Code向け指示・セットアップ手順
 └── README.md                     # このファイル
 ```
