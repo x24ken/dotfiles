@@ -84,12 +84,7 @@ exec zsh
 
 ### Claude Code設定
 
-| 項目 | 設定 |
-|---|---|
-| パーミッション | ほぼ全許可（破壊コマンドはdeny/ask） |
-| statusline | ctx/5h/7d使用率 + worktree検出 |
-| alwaysThinking | ON |
-| autoMemory | ON |
+[claude-config](https://github.com/x24ken/claude-config) リポジトリで管理（`~/.claude` を直接git化）。
 
 ### macOS設定（オプション）
 
