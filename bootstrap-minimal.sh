@@ -18,18 +18,24 @@ else
     echo "✅ Claude Code は既にインストールされています"
 fi
 
-# 2. Claude Code 設定の適用
+# 2. Claude Code 設定の取得（claude-config リポジトリ → ~/.claude）
 echo ""
-echo "🤖 Claude Code の設定を適用中..."
-DOTFILES_DIR="$HOME/dotfiles"
-mkdir -p "$HOME/.claude"
+echo "🤖 Claude Code の設定を取得中..."
+CLAUDE_DIR="$HOME/.claude"
+CLAUDE_CONFIG_REPO="https://github.com/x24ken/claude-config.git"
 
-if [ -f "${DOTFILES_DIR}/.claude/settings.json" ]; then
-    ln -sf "${DOTFILES_DIR}/.claude/settings.json" "$HOME/.claude/settings.json"
-    echo "✅ Claude Code の設定を適用しました"
-    echo "   （すべてのコマンドが自動許可されます。危険なコマンドのみ確認が必要です）"
+if [ -d "$CLAUDE_DIR/.git" ]; then
+    echo "✅ ~/.claude は既に claude-config で管理されています"
+elif [ ! -d "$CLAUDE_DIR" ] || [ -z "$(ls -A "$CLAUDE_DIR" 2>/dev/null)" ]; then
+    git clone "$CLAUDE_CONFIG_REPO" "$CLAUDE_DIR"
+    git -C "$CLAUDE_DIR" config core.hooksPath git-hooks
+    echo "✅ claude-config を ~/.claude にクローンしました"
 else
-    echo "⚠️  設定ファイルが見つかりません: ${DOTFILES_DIR}/.claude/settings.json"
+    echo "⚠️  ~/.claude が既に存在し、git 管理されていません"
+    echo "   手動で claude-config を取り込んでください:"
+    echo "   git clone ${CLAUDE_CONFIG_REPO} /tmp/claude-config"
+    echo "   cp -R /tmp/claude-config/. ~/.claude/   # settings.json, CLAUDE.md, hooks/, skills/ など"
+    echo "   git -C ~/.claude config core.hooksPath git-hooks"
 fi
 
 # 完了メッセージ

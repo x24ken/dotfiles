@@ -47,6 +47,7 @@ exec zsh
 | パッケージ | 種類 | 用途 |
 |---|---|---|
 | gh | CLI | GitHub操作 |
+| pyenv | CLI | Pythonバージョン管理 |
 | tree | CLI | ディレクトリ表示 |
 | iterm2 | App | ターミナル |
 | claude-code | CLI | AI開発支援（curl経由でインストール） |
@@ -59,6 +60,7 @@ exec zsh
 | zshプラグイン | syntax-highlighting, autosuggestions, you-should-use |
 | Powerlineフォント | agnosterテーマ用 |
 | NVM | Node.jsバージョン管理 |
+| pyenv | Pythonバージョン管理 |
 | デフォルトエディタ | vim |
 
 ### エイリアス
