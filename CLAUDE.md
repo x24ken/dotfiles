@@ -114,4 +114,4 @@ git add Brewfile && git commit -m "Add <package-name>" && git push
 ### 重要な環境情報
 - **Node.js**: NVMでバージョン管理
 - **Python**: pyenvでバージョン管理、`python`は`python3`にエイリアス
-- **エディタ**: Cursorを使用（`code`コマンドは`cursor`にエイリアス）
+- **エディタ**: vim（EDITOR、git core.editor とも vim）

@@ -34,8 +34,8 @@ export PATH="/opt/homebrew/bin:$PATH"
 # エディタ設定
 # ============================================================
 
-export EDITOR="cursor --wait"
-export VISUAL="cursor --wait"
+export EDITOR="vim"
+export VISUAL="vim"
 
 
 # ============================================================
@@ -64,9 +64,6 @@ alias cc='claude'
 alias ccc='claude --continue'
 alias ccr='claude --resume'
 alias ccw='claude --worktree'
-
-# Cursor
-alias code="cursor"
 
 
 # ============================================================

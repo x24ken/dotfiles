@@ -48,7 +48,6 @@ exec zsh
 |---|---|---|
 | gh | CLI | GitHub操作 |
 | tree | CLI | ディレクトリ表示 |
-| cursor | App | コードエディタ |
 | iterm2 | App | ターミナル |
 | claude-code | CLI | AI開発支援（curl経由でインストール） |
 
@@ -60,7 +59,7 @@ exec zsh
 | zshプラグイン | syntax-highlighting, autosuggestions, you-should-use |
 | Powerlineフォント | agnosterテーマ用 |
 | NVM | Node.jsバージョン管理 |
-| デフォルトエディタ | cursor |
+| デフォルトエディタ | vim |
 
 ### エイリアス
 
@@ -73,13 +72,12 @@ exec zsh
 | gw | git worktree | |
 | git s / l / cm / a / p / ds | status / log --oneline / commit -m / add / push / diff --staged | |
 | python / pip | python3 / pip3 | |
-| code | cursor | |
 
 ### Git設定
 
 | 項目 | 設定 |
 |---|---|
-| core.editor | cursor |
+| core.editor | vim |
 | push.autoSetupRemote | true（新ブランチのpushで--set-upstream不要） |
 
 ### Claude Code設定
