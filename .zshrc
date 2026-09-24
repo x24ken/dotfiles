@@ -5,11 +5,9 @@
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="agnoster"
 
-# プラグイン
+# プラグイン（oh-my-zsh 同梱 + custom に clone したもの）
 plugins=(
     git
-    zsh-syntax-highlighting
-    zsh-autosuggestions
     you-should-use
 )
 
@@ -42,15 +40,10 @@ export VISUAL="vim"
 # ツール設定
 # ============================================================
 
-# NVM (Node.js version manager)
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+# mise (Node.js version manager)
+command -v mise >/dev/null && eval "$(mise activate zsh)"
 
-# pyenv (Python version manager)
-export PYENV_ROOT="$HOME/.pyenv"
-[ -d "$PYENV_ROOT/bin" ] && export PATH="$PYENV_ROOT/bin:$PATH"
-command -v pyenv >/dev/null && eval "$(pyenv init - zsh)"
+# uv (Python) は brew の PATH 上にあるため初期化不要
 
 
 # ============================================================
@@ -83,3 +76,13 @@ alias ccw='claude --worktree'
 
 # ローカル設定（マシン固有のカスタマイズ）
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
+
+
+# ============================================================
+# brew 管理の zsh プラグイン（syntax-highlighting は最後に読む）
+# ============================================================
+
+[ -f /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh ] && \
+    source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+[ -f /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && \
+    source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

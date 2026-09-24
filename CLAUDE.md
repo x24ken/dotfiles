@@ -33,13 +33,12 @@ Claude Code設定は [claude-config](https://github.com/x24ken/claude-config)（
 ```
 
 **実行内容**:
-1. Homebrewパッケージの一括インストール（Brewfile）
-2. oh-my-zsh + zshプラグインのインストール
-3. Powerlineフォントのインストール
-4. dotfilesのシンボリックリンク作成（.zshrc, .gitconfig）
-5. pre-commit hookのインストール
-6. NVMのインストール
-7. macOSシステム設定の適用（オプション、ユーザー確認後）
+1. Homebrewパッケージの一括インストール（Brewfile: CLI、zshプラグイン、iTerm2、Nerd Font）
+2. oh-my-zsh + you-should-use プラグインのインストール
+3. dotfilesのシンボリックリンク作成（.zshrc, .gitconfig）
+4. pre-commit hookのインストール
+5. ランタイムの既定バージョン設定（mise で Node.js LTS、uv で最新 Python）
+6. macOSシステム設定の適用（オプション、ユーザー確認後）
 
 ### 2. 個人設定ファイルの作成
 
@@ -64,7 +63,8 @@ exec zsh
 ```bash
 echo $ZSH_THEME    # agnoster
 alias cc            # claude
-nvm --version       # NVMの確認
+mise --version      # Node.js バージョン管理
+uv --version        # Python バージョン管理
 gh --version        # GitHub CLI（Brewfileでインストール済み）
 ```
 
@@ -86,7 +86,7 @@ gh --version        # GitHub CLI（Brewfileでインストール済み）
 | Homebrewのエラー | `brew update && brew doctor` |
 | oh-my-zshのインストール失敗 | `rm -rf ~/.oh-my-zsh` → `./setup.sh` |
 | シンボリックリンクのエラー | `ls -la ~/.dotfiles_backup_*` で確認 → 既存ファイル削除 → `./setup.sh` |
-| NVMのインストール失敗 | `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh \| bash` |
+| mise / uv が見つからない | `brew bundle --file=~/dotfiles/Brewfile` を再実行 |
 
 ---
 
@@ -95,16 +95,17 @@ gh --version        # GitHub CLI（Brewfileでインストール済み）
 - [ ] `~/.zshrc` → `~/dotfiles/.zshrc` のシンボリックリンク
 - [ ] `~/.gitconfig` → `~/dotfiles/.gitconfig` のシンボリックリンク
 - [ ] `~/.gitconfig.local` にユーザー情報が設定されている
-- [ ] oh-my-zsh、NVM、エイリアス（cc, ccr, ccw）が動作している
+- [ ] oh-my-zsh、mise、uv、エイリアス（cc, ccr, ccw）が動作している
 
 ---
 
 ## 💡 カスタマイズ時の注意
 
 ### パッケージの追加
+Brewfile は厳選リストなので、`brew bundle dump` で丸ごと上書きしない。1 行ずつ手で足す：
 ```bash
 brew install <package-name>
-brew bundle dump --force
+echo 'brew "<package-name>"' >> Brewfile   # 該当セクションに手で並べ替えてもよい
 git add Brewfile && git commit -m "Add <package-name>" && git push
 ```
 
@@ -112,6 +113,6 @@ git add Brewfile && git commit -m "Add <package-name>" && git push
 `macos-defaults.sh`を編集。各設定はスクリプト内のコメントで説明されています。
 
 ### 重要な環境情報
-- **Node.js**: NVMでバージョン管理
-- **Python**: pyenvでバージョン管理、`python`は`python3`にエイリアス
+- **Node.js**: mise でバージョン管理（NVM は使わない）
+- **Python**: uv でバージョン管理・仮想環境・依存管理（pyenv は使わない）、`python`は`python3`にエイリアス
 - **エディタ**: vim（EDITOR、git core.editor とも vim）

@@ -47,9 +47,12 @@ exec zsh
 | パッケージ | 種類 | 用途 |
 |---|---|---|
 | gh | CLI | GitHub操作 |
-| pyenv | CLI | Pythonバージョン管理 |
+| mise | CLI | Node.jsバージョン管理（NVMの後継） |
 | tree | CLI | ディレクトリ表示 |
+| uv | CLI | Pythonバージョン管理・仮想環境・依存管理 |
+| zsh-autosuggestions, zsh-syntax-highlighting | zshプラグイン | コマンド補完・構文ハイライト |
 | iterm2 | App | ターミナル |
+| font-meslo-lg-nerd-font | フォント | agnosterテーマ用（Powerline記号入り） |
 | claude-code | CLI | AI開発支援（curl経由でインストール） |
 
 ### シェル環境
@@ -57,10 +60,9 @@ exec zsh
 | 項目 | 設定 |
 |---|---|
 | oh-my-zsh | テーマ: agnoster |
-| zshプラグイン | syntax-highlighting, autosuggestions, you-should-use |
-| Powerlineフォント | agnosterテーマ用 |
-| NVM | Node.jsバージョン管理 |
-| pyenv | Pythonバージョン管理 |
+| zshプラグイン | autosuggestions, syntax-highlighting（brew）, you-should-use（git clone） |
+| Node.js | mise（`mise use -g node@lts`。`.nvmrc` があるディレクトリで自動切替） |
+| Python | uv（`uv python install`。`.python-version` を自動で読む） |
 | デフォルトエディタ | vim |
 
 ### エイリアス

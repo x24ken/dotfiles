@@ -48,37 +48,16 @@ else
 fi
 
 # 4. zshプラグインのインストール
+# zsh-autosuggestions と zsh-syntax-highlighting は Brewfile で導入済み。
+# you-should-use は brew に無いので oh-my-zsh の custom に clone する。
 echo "🔌 zshプラグインをインストール中..."
-
-# zsh-syntax-highlighting
-if [ ! -d "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting" ]; then
-    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-fi
-
-# zsh-autosuggestions
-if [ ! -d "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions" ]; then
-    git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-fi
 
 # you-should-use
 if [ ! -d "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/you-should-use" ]; then
     git clone https://github.com/MichaelAquilina/zsh-you-should-use.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/you-should-use
 fi
 
-# 5. Powerlineフォントのインストール
-echo "🔤 Powerlineフォントの確認中..."
-if ls ~/Library/Fonts/Noto*Powerline* &> /dev/null; then
-    echo "✅ Powerlineフォントは既にインストールされています"
-else
-    echo "Powerlineフォントをインストールします..."
-    FONTS_TMPDIR=$(mktemp -d)
-    git clone --depth=1 https://github.com/powerline/fonts.git "$FONTS_TMPDIR/fonts"
-    cd "$FONTS_TMPDIR/fonts"
-    ./install.sh
-    cd "$DOTFILES_DIR"
-    rm -rf "$FONTS_TMPDIR"
-    echo "✅ Powerlineフォントをインストールしました"
-fi
+# 5. フォントは Brewfile（font-meslo-lg-nerd-font）で導入済み
 
 # 6. dotfilesのシンボリックリンクを作成
 echo "🔗 dotfilesのシンボリックリンクを作成中..."
@@ -143,13 +122,19 @@ else
     echo "✅ ~/.env は既に存在します"
 fi
 
-# 8. NVMのインストール（Node.jsバージョン管理）
-echo "📦 NVMの確認中..."
-if [ ! -d "$HOME/.nvm" ]; then
-    echo "NVMをインストールします..."
-    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+# 8. ランタイムの既定バージョン（Node.js は mise、Python は uv。どちらも Brewfile で導入済み）
+echo "📦 ランタイムの既定バージョンを設定中..."
+if command -v mise &> /dev/null; then
+    mise use -g node@lts
+    echo "✅ Node.js (LTS) を mise で設定しました"
 else
-    echo "✅ NVM は既にインストールされています"
+    echo "⚠️  mise が見つかりません。brew bundle が失敗していないか確認してください"
+fi
+if command -v uv &> /dev/null; then
+    uv python install
+    echo "✅ Python (最新安定版) を uv で導入しました"
+else
+    echo "⚠️  uv が見つかりません。brew bundle が失敗していないか確認してください"
 fi
 
 # 9. macOSシステム設定の適用（オプション）
