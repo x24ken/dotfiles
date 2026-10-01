@@ -15,6 +15,8 @@ cd ~/dotfiles
 ./bootstrap-minimal.sh
 ```
 
+Claude Code のインストールと、[claude-config](https://github.com/x24ken/claude-config) の `~/.claude` へのクローンが行われます。
+
 ### フェーズ2: Claude Codeで自動セットアップ
 
 ```bash
@@ -86,19 +88,19 @@ exec zsh
 
 ### Claude Code設定
 
-[claude-config](https://github.com/x24ken/claude-config) リポジトリで管理（`~/.claude` を直接git化）。
+[claude-config](https://github.com/x24ken/claude-config) リポジトリで管理（`~/.claude` を直接git化）。`bootstrap-minimal.sh` が自動でクローンします。
 
 ### macOS設定（オプション）
 
 | カテゴリ | 設定 |
 |---|---|
 | Dock | サイズ53、下配置、自動非表示、最近のアプリ非表示 |
-| Finder | 隠しファイル表示、拡張子表示、パスバー、ステータスバー、リスト表示、ホームフォルダ |
+| Finder | 隠しファイル表示、拡張子表示、パスバー、ステータスバー、リスト表示、ホームフォルダ、ゴミ箱を空にする警告OFF |
 | キーボード | リピート最速、開始時間最短 |
 | トラックパッド | タップでクリック、ナチュラルスクロール |
 | スクリーンショット | クリップボードのみ、影なし |
-| UI | ダークモード、アニメーション高速化、スクロールバーはスクロール時のみ |
-| テキスト入力 | スペルチェックOFF、スマート引用符OFF、自動大文字化OFF、ライブ変換OFF |
+| UI | ダークモード、アニメーション高速化、スクロールバーはスクロール時のみ、保存・印刷ダイアログ常時展開、クラッシュレポートOFF、メニューバー時計の書式 |
+| テキスト入力 | スペルチェックOFF、スマート引用符OFF、スマートダッシュOFF、自動大文字化OFF、ピリオド2回挿入OFF、ライブ変換OFF |
 
 ### セキュリティ
 
@@ -136,7 +138,7 @@ cp ~/dotfiles/iterm2/hotkey-window.json ~/Library/Application\ Support/iTerm2/Dy
 
 ```
 ~/dotfiles/
-├── bootstrap-minimal.sh          # Claude Codeインストール
+├── bootstrap-minimal.sh          # Claude Codeインストール + claude-config取得
 ├── setup.sh                      # メインセットアップスクリプト
 ├── macos-defaults.sh             # macOSシステム設定
 ├── Brewfile                      # Homebrewパッケージリスト
@@ -166,6 +168,12 @@ brew doctor
 ```bash
 rm -rf ~/.oh-my-zsh
 ./setup.sh
+```
+
+### mise / uv が見つからない
+
+```bash
+brew bundle --file=~/dotfiles/Brewfile
 ```
 
 ---

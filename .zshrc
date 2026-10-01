@@ -71,9 +71,6 @@ alias ccw='claude --worktree'
 # 環境変数（秘密情報）
 [ -f ~/.env ] && source ~/.env
 
-# ローカル環境変数
-[ -f "$HOME/.local/bin/env" ] && . "$HOME/.local/bin/env"
-
 # ローカル設定（マシン固有のカスタマイズ）
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 
