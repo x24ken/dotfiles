@@ -42,7 +42,7 @@ Claude Code設定は [claude-config](https://github.com/x24ken/claude-config)（
 
 ### 2. 個人設定ファイルの作成
 
-ユーザーに**名前**と**メールアドレス**を確認してから作成：
+`setup.sh` は `~/.gitconfig.local` と `~/.env` が無ければ対話で作成しますが、Claude Code 経由の実行では標準入力が無いためスキップされます。その場合はユーザーに**名前**と**メールアドレス**を確認してから作成：
 
 ```bash
 cp .gitconfig.local.template ~/.gitconfig.local
